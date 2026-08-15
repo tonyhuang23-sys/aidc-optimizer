@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "jurisdiction": "texas",
+    "scope": "baseline only",
+    "numpy_version": "2.2.6"
+  },
+  "baseline": {
+    "dev": {
+      "capex_musd": 19.5,
+      "sponsor_equity_musd": 19.5,
+      "peak_equity_musd": 19.5,
+      "project_irr": 0.89454,
+      "equity_irr": null,
+      "npv_musd": 9.82,
+      "min_dscr": null,
+      "moic": 0.0
+    },
+    "power": {
+      "capex_musd": 119.0,
+      "sponsor_equity_musd": 40.22,
+      "peak_equity_musd": 42.7,
+      "project_irr": 0.27845,
+      "equity_irr": 0.38011,
+      "npv_musd": 244.98,
+      "min_dscr": 1.35,
+      "moic": 25.247
+    },
+    "shell": {
+      "capex_musd": 439.0,
+      "sponsor_equity_musd": 215.22,
+      "peak_equity_musd": 222.29,
+      "project_irr": 0.12931,
+      "equity_irr": 0.1502,
+      "npv_musd": 78.99,
+      "min_dscr": 1.35,
+      "moic": 3.861
+    },
+    "critical_it": {
+      "capex_musd": 703.0,
+      "sponsor_equity_musd": 260.23,
+      "peak_equity_musd": 287.41,
+      "project_irr": 0.20875,
+      "equity_irr": 0.27188,
+      "npv_musd": 647.37,
+      "min_dscr": 1.3,
+      "moic": 10.437
+    },
+    "gpu_hosting": {
+      "capex_musd": 1023.0,
+      "sponsor_equity_musd": 449.99,
+      "peak_equity_musd": 468.64,
+      "project_irr": 0.19726,
+      "equity_irr": 0.23833,
+      "npv_musd": 655.38,
+      "min_dscr": 1.35,
+      "moic": 8.981
+    },
+    "compute": {
+      "capex_musd": 5759.0,
+      "sponsor_equity_musd": 5428.05,
+      "peak_equity_musd": 1031.33,
+      "project_irr": -0.30195,
+      "equity_irr": 0.02583,
+      "npv_musd": -3380.76,
+      "min_dscr": -0.4471,
+      "moic": 1.125
+    },
+    "ai_factory": {
+      "capex_musd": 5463.0,
+      "sponsor_equity_musd": 5222.71,
+      "peak_equity_musd": 816.25,
+      "project_irr": -0.36486,
+      "equity_irr": 0.13196,
+      "npv_musd": -2817.06,
+      "min_dscr": -0.6235,
+      "moic": 1.515
+    }
+  }
+}

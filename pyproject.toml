@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aidc-optimizer"
+version = "1.2.0"
+description = "AIDC value-chain investment evaluation engine: seven business models on a 100 MW reference platform, asset+financing dual engines, Monte Carlo, CE-NPV/IRASR risk-adjusted decision metrics."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "numpy==2.2.6",
+    "PyYAML==6.0.3",
+    "matplotlib==3.10.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5"]
+
+[tool.setuptools.packages.find]
+include = ["aidc_optimizer*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

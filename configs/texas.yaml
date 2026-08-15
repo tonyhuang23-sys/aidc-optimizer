@@ -1,0 +1,215 @@
+# ============================================================================
+# AIDC 投资价值链评估 — Texas (ERCOT) 参数包
+# 基准: 100 MW 发电容量 BTM/网侧 + AIDC，PUE 1.25 → 80 MW Critical IT
+#
+# 差异要点 vs Alberta:
+#  - 气价: Henry Hub/Waha ~$3.0/MMBtu ≈ $2.85/GJ（高于AECO）
+#  - 碳价: 无（ERCOT 无碳定价；仅 TCEQ 许可成本计入 dev）
+#  - 造价: 德州供应链/人工略低于阿省(无冬季施工系数), 新机选择更多
+#  - 审批: TCEQ NSR 12-18 个月，无 First Nations consultation
+#  - 税率: 联邦21% + TX franchise ~2% ≈ 23%
+# ============================================================================
+
+jurisdiction: Texas
+currency: USD
+
+reference:
+  gen_mw: 100
+  pue: 1.25
+
+tax:
+  rate: 0.23
+  dep_life_months: 240          # MACRS 15年资产近似直线
+  method: straight_line
+
+wacc:
+  L0_Dev: 0.22
+  L1_Power: 0.085
+  L2_Shell: 0.10
+  L3_CriticalIT: 0.095
+  L35_Hosting: 0.11
+  L4_Compute: 0.15
+  L5_AI: 0.19
+
+power:
+  tech: "1x7F.05 SC+或2xLM6000 (BTM)"
+  capex_per_kw: 1050            # 德州新机/翻新机混合，供应链成熟
+  dev_capex_musd: 14            # TCEQ NSR + ERCOT并网 + 土地
+  construction_months: 20
+  heat_rate_gj_per_mwh: 9.5     # SC 口径(若选CC改7.2)
+  gas_price_gj: 2.85            # Henry Hub/Waha
+  gas_escalator: 0.02
+  availability: 0.92
+  capacity_payment_kw_mo: 17    # ERCOT tolling 市场口径
+  fuel_passthrough: true
+  vom_per_mwh: 3.5
+  fixed_om_kw_yr: 20
+  life_months: 360
+  residual_pct: 0.10
+  dc_credit_pct: 1.0
+  carbon:
+    price: 0                    # ERCOT 无碳价
+    intensity: 0.50             # SC
+    benchmark: 0
+    passthrough: false
+    escalator: 0
+
+dev:
+  months: 18                    # TCEQ+地方审批快于阿省
+  land_musd: 4
+  ic_musd: 9
+  permitting_musd: 3.5
+  other_musd: 3
+  exit_value_per_kw: 430        # ERCOT 流动性更高
+
+dc:
+  shell_capex_per_kw: 4000
+  shell_rent_kw_mo: 75
+  shell_lease_months: 180
+  ready_capex_per_kw: 7300      # 德州造价低于阿省(无冬季措施费), 不含机架
+  ready_rent_kw_mo: 175         # ERCOT 市场租金略低
+  # 到机架增量: 棕地改造实盘校准口径(DLC+网络+存储+软件 ≈$4k/kW-IT)
+  hosting_capex_increment_per_kw: 4000
+  hosting_rent_kw_mo: 290
+  lease_months: 240
+  opex_kw_yr: 28
+  escalator: 0.02
+  construction_months: 16
+  power_cost_per_mwh: 62        # 气价高 → 电价略高
+  residual_pct: 0.25
+
+# L4 GPU价格锚点同alberta.yaml (2026-08: B300 $50K, GB300 NVL72 $3.85M/柜,
+# 租金B300 $5/GPUh现货$7-9, 合约价2025末以来反弹; 情景预设见alberta.yaml注释)
+gpu:
+  capex_per_kw_it: 32000        # GB300 NVL72口径
+  rate_per_kw_hr: 3.0
+  rate_decay: -0.22
+  utilization: 0.75
+  ramp_months: 24
+  refresh_months: 48
+  refresh_capex_factor: 0.85
+  refresh_rate_factor: 0.8
+  residual_pct_at_refresh: 0.15
+  extra_opex_kw_yr: 15
+
+ai:
+  capex_per_kw_it: 30000
+  rate_per_kw_hr: 6.0
+  rate_decay: -0.28
+  utilization: 0.80
+  ramp_months: 18
+  refresh_months: 36
+  refresh_capex_factor: 0.85
+  refresh_rate_factor: 0.85
+  residual_pct_at_refresh: 0.12
+  extra_opex_kw_yr: 45
+
+finance:
+  L0_Dev:
+    enabled: false
+  L1_Power:
+    leverage: 0.65
+    rate: 0.058
+    tenor_months: 240
+    amort: sculpted
+    target_dscr: 1.35
+    min_dscr_covenant: 1.20
+    commitment_fee: 0.0035
+    upfront_fee: 0.01
+    cash_sweep: 0.50
+  L2_Shell:
+    leverage: 0.50
+    rate: 0.068
+    tenor_months: 180
+    amort: sculpted
+    target_dscr: 1.35
+    min_dscr_covenant: 1.25
+    commitment_fee: 0.0035
+    upfront_fee: 0.01
+    cash_sweep: 0.50
+  L3_CriticalIT:
+    leverage: 0.60
+    rate: 0.062
+    tenor_months: 228
+    amort: sculpted
+    target_dscr: 1.30
+    min_dscr_covenant: 1.20
+    commitment_fee: 0.0035
+    upfront_fee: 0.012
+    cash_sweep: 0.50
+    customer_capital_musd: 15
+  L35_Hosting:
+    leverage: 0.55
+    rate: 0.072
+    tenor_months: 180
+    amort: sculpted
+    target_dscr: 1.35
+    min_dscr_covenant: 1.25
+    commitment_fee: 0.0035
+    upfront_fee: 0.012
+    cash_sweep: 0.50
+  L4_Compute:
+    leverage: 0.35
+    rate: 0.095
+    tenor_months: 48
+    amort: mortgage
+    min_dscr_covenant: 1.20
+    commitment_fee: 0.005
+    upfront_fee: 0.015
+    cash_sweep: 0.75
+  L5_AI:
+    leverage: 0.25
+    rate: 0.115
+    tenor_months: 36
+    amort: mortgage
+    min_dscr_covenant: 1.20
+    commitment_fee: 0.005
+    upfront_fee: 0.015
+    cash_sweep: 0.75
+
+mc:
+  L0_Dev:
+    hurdle: 0.22
+    params:
+      - {path: dev.exit_value_per_kw, dist: lognormal, sigma: 0.25}
+      - {path: dev.months, dist: normal, sigma: 0.2}
+      - {path: dev.ic_musd, dist: lognormal, sigma: 0.3}
+  L1_Power:
+    hurdle: 0.085
+    params:
+      - {path: power.capacity_payment_kw_mo, dist: lognormal, sigma: 0.18}
+      - {path: power.gas_price_gj, dist: lognormal, sigma: 0.30}
+      - {path: power.capex_per_kw, dist: lognormal, sigma: 0.15}
+      - {path: power.availability, dist: normal, sigma: 0.03}
+  L2_Shell:
+    hurdle: 0.10
+    params:
+      - {path: dc.shell_rent_kw_mo, dist: lognormal, sigma: 0.15}
+      - {path: dc.shell_capex_per_kw, dist: lognormal, sigma: 0.20}
+  L3_CriticalIT:
+    hurdle: 0.095
+    params:
+      - {path: dc.ready_rent_kw_mo, dist: lognormal, sigma: 0.15}
+      - {path: dc.ready_capex_per_kw, dist: lognormal, sigma: 0.18}
+      - {path: dc.escalator, dist: normal, sigma: 0.01}
+  L35_Hosting:
+    hurdle: 0.11
+    params:
+      - {path: dc.hosting_rent_kw_mo, dist: lognormal, sigma: 0.15}
+      - {path: dc.ready_capex_per_kw, dist: lognormal, sigma: 0.18}
+      - {path: dc.power_cost_per_mwh, dist: lognormal, sigma: 0.25}
+  L4_Compute:
+    hurdle: 0.15
+    params:
+      - {path: gpu.rate_per_kw_hr, dist: lognormal, sigma: 0.25}
+      - {path: gpu.rate_decay, dist: normal, sigma: 0.05}
+      - {path: gpu.utilization, dist: normal, sigma: 0.10}
+      - {path: gpu.capex_per_kw_it, dist: lognormal, sigma: 0.15}
+      - {path: gpu.residual_pct_at_refresh, dist: lognormal, sigma: 0.35}
+  L5_AI:
+    hurdle: 0.19
+    params:
+      - {path: ai.rate_per_kw_hr, dist: lognormal, sigma: 0.35}
+      - {path: ai.rate_decay, dist: normal, sigma: 0.06}
+      - {path: ai.utilization, dist: normal, sigma: 0.10}
+      - {path: ai.capex_per_kw_it, dist: lognormal, sigma: 0.15}

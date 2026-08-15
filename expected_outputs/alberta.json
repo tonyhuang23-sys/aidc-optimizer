@@ -1,0 +1,319 @@
+{
+  "metadata": {
+    "jurisdiction": "alberta",
+    "paper_version": "v3.2",
+    "numpy_version": "2.2.6",
+    "seeds": {
+      "L3": 42,
+      "L4": 42
+    },
+    "note": "Regenerated from pinned config + code; see docs/REPRODUCIBILITY.md"
+  },
+  "baseline": {
+    "dev": {
+      "capex_musd": 20.0,
+      "sponsor_equity_musd": 20.0,
+      "peak_equity_musd": 20.0,
+      "project_irr": 0.55142,
+      "equity_irr": null,
+      "npv_musd": 5.36,
+      "min_dscr": null,
+      "moic": 0.0
+    },
+    "power": {
+      "capex_musd": 133.0,
+      "sponsor_equity_musd": 44.7,
+      "peak_equity_musd": 47.87,
+      "project_irr": 0.21116,
+      "equity_irr": 0.28037,
+      "npv_musd": 191.48,
+      "min_dscr": 1.35,
+      "moic": 19.096
+    },
+    "shell": {
+      "capex_musd": 469.0,
+      "sponsor_equity_musd": 229.83,
+      "peak_equity_musd": 237.72,
+      "project_irr": 0.12488,
+      "equity_irr": 0.14436,
+      "npv_musd": 87.02,
+      "min_dscr": 1.35,
+      "moic": 3.728
+    },
+    "critical_it": {
+      "capex_musd": 773.0,
+      "sponsor_equity_musd": 287.35,
+      "peak_equity_musd": 316.51,
+      "project_irr": 0.2009,
+      "equity_irr": 0.25985,
+      "npv_musd": 706.5,
+      "min_dscr": 1.3,
+      "moic": 9.975
+    },
+    "gpu_hosting": {
+      "capex_musd": 1093.0,
+      "sponsor_equity_musd": 480.44,
+      "peak_equity_musd": 501.34,
+      "project_irr": 0.19488,
+      "equity_irr": 0.2345,
+      "npv_musd": 732.48,
+      "min_dscr": 1.35,
+      "moic": 8.821
+    },
+    "compute": {
+      "capex_musd": 5829.0,
+      "sponsor_equity_musd": 5474.51,
+      "peak_equity_musd": 1097.23,
+      "project_irr": -0.29727,
+      "equity_irr": 0.01769,
+      "npv_musd": -3350.72,
+      "min_dscr": -0.3902,
+      "moic": 1.086
+    },
+    "ai_factory": {
+      "capex_musd": 5533.0,
+      "sponsor_equity_musd": 5275.05,
+      "peak_equity_musd": 895.46,
+      "project_irr": -0.35903,
+      "equity_irr": 0.1122,
+      "npv_musd": -2784.06,
+      "min_dscr": -0.5528,
+      "moic": 1.45
+    }
+  },
+  "power_coherence": {
+    "P1_market_coherent": {
+      "capex_musd": 368.0,
+      "sponsor_equity_musd": 125.57,
+      "peak_equity_musd": 132.54,
+      "project_irr": 0.10973,
+      "equity_irr": 0.14141,
+      "npv_musd": 104.38,
+      "min_dscr": 1.35,
+      "moic": 8.213
+    },
+    "P2_bridge_contract": {
+      "capex_musd": 133.0,
+      "sponsor_equity_musd": 64.18,
+      "peak_equity_musd": 67.52,
+      "project_irr": 0.16944,
+      "equity_irr": 0.19182,
+      "npv_musd": 129.4,
+      "min_dscr": 1.35,
+      "moic": 11.02
+    },
+    "P3_arbitrage": {
+      "capex_musd": 133.0,
+      "sponsor_equity_musd": 44.7,
+      "peak_equity_musd": 47.87,
+      "project_irr": 0.21116,
+      "equity_irr": 0.28037,
+      "npv_musd": 191.48,
+      "min_dscr": 1.35,
+      "moic": 19.096
+    }
+  },
+  "factorial_2x2x2": {
+    "Greenfield x Merchant x New": {
+      "capex_musd": 5829.0,
+      "sponsor_equity_musd": 5474.51,
+      "peak_equity_musd": 1097.23,
+      "project_irr": -0.29727,
+      "equity_irr": 0.01769,
+      "npv_musd": -3350.72,
+      "min_dscr": -0.3902,
+      "moic": 1.086
+    },
+    "Greenfield x Merchant x Used": {
+      "capex_musd": 2869.0,
+      "sponsor_equity_musd": 2491.2,
+      "peak_equity_musd": 1157.8,
+      "project_irr": -0.20006,
+      "equity_irr": -0.0521,
+      "npv_musd": -1674.26,
+      "min_dscr": -0.3647,
+      "moic": 0.77
+    },
+    "Greenfield x Contracted x New": {
+      "capex_musd": 5829.0,
+      "sponsor_equity_musd": 5474.51,
+      "peak_equity_musd": 755.29,
+      "project_irr": -0.16605,
+      "equity_irr": 0.37918,
+      "npv_musd": -2214.3,
+      "min_dscr": -0.1087,
+      "moic": 3.653
+    },
+    "Greenfield x Contracted x Used": {
+      "capex_musd": 2869.0,
+      "sponsor_equity_musd": 2491.2,
+      "peak_equity_musd": 731.98,
+      "project_irr": -0.06821,
+      "equity_irr": 0.16264,
+      "npv_musd": -986.95,
+      "min_dscr": -0.2722,
+      "moic": 2.078
+    },
+    "Brownfield x Merchant x New": {
+      "capex_musd": 5529.0,
+      "sponsor_equity_musd": 5281.92,
+      "peak_equity_musd": 788.51,
+      "project_irr": -0.31288,
+      "equity_irr": 0.07322,
+      "npv_musd": -3111.36,
+      "min_dscr": -0.5796,
+      "moic": 1.373
+    },
+    "Brownfield x Merchant x Used": {
+      "capex_musd": 2569.0,
+      "sponsor_equity_musd": 2298.61,
+      "peak_equity_musd": 844.21,
+      "project_irr": -0.21104,
+      "equity_irr": -0.01284,
+      "npv_musd": -1440.67,
+      "min_dscr": -0.5209,
+      "moic": 0.943
+    },
+    "Brownfield x Contracted x New": {
+      "capex_musd": 5529.0,
+      "sponsor_equity_musd": 5281.92,
+      "peak_equity_musd": 558.22,
+      "project_irr": -0.16954,
+      "equity_irr": 0.59775,
+      "npv_musd": -1983.83,
+      "min_dscr": -0.1521,
+      "moic": 5.09
+    },
+    "Brownfield x Contracted x Used": {
+      "capex_musd": 2569.0,
+      "sponsor_equity_musd": 2298.61,
+      "peak_equity_musd": 534.91,
+      "project_irr": -0.0541,
+      "equity_irr": 0.28144,
+      "npv_musd": -756.6,
+      "min_dscr": -0.3927,
+      "moic": 2.907
+    }
+  },
+  "shortage": {
+    "capex_musd": 5829.0,
+    "sponsor_equity_musd": 5474.51,
+    "peak_equity_musd": 755.29,
+    "project_irr": -0.02506,
+    "equity_irr": 0.58648,
+    "npv_musd": -1412.24,
+    "min_dscr": 1.4764,
+    "moic": 6.377
+  },
+  "baseline_risk": {
+    "dev": {
+      "n": 1500,
+      "e_npv_musd": 5.6,
+      "es5_musd": -4.4,
+      "ce0_musd": 5.6,
+      "ce05_musd": 0.6,
+      "ce1_musd": -4.4,
+      "loss_rate": 0.1387,
+      "wilson_lo": 0.1221,
+      "wilson_hi": 0.1571
+    },
+    "shell": {
+      "n": 1500,
+      "e_npv_musd": 85.2,
+      "es5_musd": -88.1,
+      "ce0_musd": 85.2,
+      "ce05_musd": -1.4,
+      "ce1_musd": -88.1,
+      "loss_rate": 0.156,
+      "wilson_lo": 0.1385,
+      "wilson_hi": 0.1752
+    },
+    "critical_it": {
+      "n": 1500,
+      "e_npv_musd": 706.2,
+      "es5_musd": 303.6,
+      "ce0_musd": 706.2,
+      "ce05_musd": 504.9,
+      "ce1_musd": 303.6,
+      "loss_rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.0026
+    },
+    "gpu_hosting": {
+      "n": 1500,
+      "e_npv_musd": 735.2,
+      "es5_musd": 154.9,
+      "ce0_musd": 735.2,
+      "ce05_musd": 445.0,
+      "ce1_musd": 154.9,
+      "loss_rate": 0.0033,
+      "wilson_lo": 0.0014,
+      "wilson_hi": 0.0078
+    },
+    "ai_factory": {
+      "n": 1500,
+      "e_npv_musd": -2776.7,
+      "es5_musd": -3781.8,
+      "ce0_musd": -2776.7,
+      "ce05_musd": -3279.2,
+      "ce1_musd": -3781.8,
+      "loss_rate": 1.0,
+      "wilson_lo": 0.9974,
+      "wilson_hi": 1.0
+    }
+  },
+  "l5a_shortage": {
+    "capex_musd": 5533.0,
+    "sponsor_equity_musd": 5275.05,
+    "peak_equity_musd": 850.12,
+    "project_irr": -0.0683,
+    "equity_irr": 0.8736,
+    "npv_musd": -1222.1,
+    "min_dscr": 0.6175,
+    "moic": 5.188
+  },
+  "risk": {
+    "L3_criticalIT": {
+      "n": 1500,
+      "e_npv_musd": 706.2,
+      "es5_musd": 303.6,
+      "ce0_musd": 706.2,
+      "ce05_musd": 504.9,
+      "ce1_musd": 303.6,
+      "loss_rate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.0026
+    },
+    "L4_shortage": {
+      "n": 800,
+      "e_npv_musd": -1414.3,
+      "es5_musd": -2633.0,
+      "ce0_musd": -1414.3,
+      "ce05_musd": -2023.6,
+      "ce1_musd": -2633.0,
+      "loss_rate": 0.9663,
+      "wilson_lo": 0.9513,
+      "wilson_hi": 0.9767
+    },
+    "L4_baseline": {
+      "n": 800,
+      "e_npv_musd": -3348.8,
+      "es5_musd": -4303.1,
+      "ce0_musd": -3348.8,
+      "ce05_musd": -3826.0,
+      "ce1_musd": -4303.1,
+      "loss_rate": 1.0,
+      "wilson_lo": 0.9952,
+      "wilson_hi": 1.0
+    }
+  },
+  "irasr": {
+    "ce_l3_musd": 504.9,
+    "ce_l4_shortage_musd": -2023.6,
+    "peak_l3_musd": 316.511,
+    "peak_l4_shortage_musd": 755.294,
+    "delta_ce_musd": -2528.5,
+    "delta_peak_musd": 438.783,
+    "value": -5.76
+  }
+}

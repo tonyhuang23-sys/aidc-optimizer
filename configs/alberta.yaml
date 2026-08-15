@@ -1,0 +1,248 @@
+# ============================================================================
+# AIDC 投资价值链评估 — Alberta 参数包
+# 基准: 100 MW 发电容量 BTM 专用 + AIDC，PUE 1.25 → 80 MW Critical IT
+#
+# 造价来源: 9E级二手燃机含业主费用 $1,150/kW（市场校准，置信0.85）
+# 碳价: TIER CA$130/t (Canada-Alberta Energy MOU 2025-11, CER暂停)
+# 租金基准: TeraWulf-Anthropic $197/kW-mo (2026)
+# 气价: AECO ~CA$2.2/GJ ≈ US$1.6/GJ
+# 税率: 联邦15% + 阿省8% = 23%
+# ============================================================================
+
+jurisdiction: Alberta
+currency: USD
+
+reference:
+  gen_mw: 100
+  pue: 1.25          # 液冷+自然冷却（阿省寒冷气候优势）
+
+tax:
+  rate: 0.23
+  dep_life_months: 240
+  method: straight_line
+
+# 分层贴现率（分层WACC，不得使用统一贴现率）
+wacc:
+  L0_Dev: 0.25
+  L1_Power: 0.08
+  L2_Shell: 0.095
+  L3_CriticalIT: 0.09
+  L35_Hosting: 0.105
+  L4_Compute: 0.15
+  L5_AI: 0.19
+
+# ---------------------------------------------------------------------------
+# L1 Power-only（tolling 专用电厂，Greenlight 模式）
+# ---------------------------------------------------------------------------
+power:
+  tech: "2x9E CC (used, BTM)"
+  capex_per_kw: 1150            # USD/kW，含业主费用/物流/60Hz适配余量
+  dev_capex_musd: 18            # 前期开发(AUC/AEPA/互联研究/土地期权)
+  construction_months: 24
+  heat_rate_gj_per_mwh: 7.6     # HHV 口径(9E CC)
+  gas_price_gj: 1.60            # AECO, USD/GJ
+  gas_escalator: 0.02
+  availability: 0.92
+  capacity_payment_kw_mo: 18    # tolling 容量费(市场锚定, Meta CA$90-120/MWh全包口径折算)
+  fuel_passthrough: true
+  vom_per_mwh: 3.5
+  fixed_om_kw_yr: 22
+  life_months: 360
+  residual_pct: 0.10
+  dc_credit_pct: 1.0            # DC层引用电厂投资时的系数
+  carbon:
+    price: 95                   # TIER CA$130/t ≈ US$95
+    intensity: 0.42             # tCO2/MWh (9E CC HHV)
+    benchmark: 0.37             # TIER good-performance 基准
+    passthrough: true           # 碳成本转嫁租户
+    escalator: 0.05
+
+# ---------------------------------------------------------------------------
+# L0 Powered Land 开发退出
+# ---------------------------------------------------------------------------
+dev:
+  months: 24                    # Bill 30 合格项目可压缩至~12个月(≥$250M)
+  land_musd: 2.5
+  ic_musd: 10                   # 互联/气接研究+定金
+  permitting_musd: 4            # AUC Rule007 + EPEA + PIP
+  other_musd: 3.5
+  exit_value_per_kw: 400        # power-secured+permitted site 转让价 USD/kW (稀缺性溢价, 参考许可/排队位交易)
+
+# ---------------------------------------------------------------------------
+# L2/L3/L35 数据中心层
+# ---------------------------------------------------------------------------
+dc:
+  shell_capex_per_kw: 4200
+  shell_rent_kw_mo: 78
+  shell_lease_months: 180
+  ready_capex_per_kw: 8000      # AI-ready 到配电/冷却接口(北美$6-9k), 不含机架
+  ready_rent_kw_mo: 185         # TeraWulf基准$197的保守取值
+  # ---- 到机架(rack-ready)增量: 棕地改造实盘校准口径(DLC+网络+存储+软件 ≈$4k/kW-IT) ----
+  # 棕地Tier2: DLC冷却$1.7k + 网络$1.5k + 存储$0.5k + 软件$0.5k ≈ $4.2k/kW-IT
+  # (全案非GPU $16k/kW-IT含柴发$2.6k与建筑改造, 绿地AI-ready已含电力/建筑)
+  hosting_capex_increment_per_kw: 4000
+  hosting_rent_kw_mo: 300       # 到机架托管含电费/rack/CDU/运维
+  lease_months: 240             # 20年 hyperscaler 租约
+  opex_kw_yr: 30
+  escalator: 0.02
+  construction_months: 18
+  power_cost_per_mwh: 58        # 内部购电价(PowerCo LCOE口径)
+  residual_pct: 0.25
+
+# ---------------------------------------------------------------------------
+# L4 ComputeCo（自持GPU出租）
+# 价格锚点(2026-08, SemiAnalysis/AIMultiple交叉验证):
+#   采购: H100新$28K/二手$11.2K, H200 $32K, B200 $36K, B300 $50K,
+#         GB300 NVL72 $3.85M/柜(=72GPU/120kW→$32.1k/kW-IT), MI355X $38K
+#   租金: H100 $2.4, H200 $3.15, B200 $3.85, B300 $5.0/GPUh(现货$7-9)
+#   ⚠ 2025末以来GPU短缺: 合约价反转上涨(H100 1yr +40%), decay为长期结构假设
+# 情景预设(--set):
+#   二手H100车队: gpu.capex_per_kw_it=9000 gpu.rate_per_kw_hr=1.9
+#   合约化take-or-pay: gpu.utilization=0.95 gpu.rate_decay=-0.10
+#   vendor backstop(NVIDIA循环支持): finance.L4_Compute.leverage=0.55
+#         finance.L4_Compute.rate=0.085 (担保增信+降息, 参照CoreWeave 9.25%)
+# ---------------------------------------------------------------------------
+gpu:
+  capex_per_kw_it: 32000        # GB300 NVL72口径; B300整机$36.7k; DGX B300 $20-23k
+  rate_per_kw_hr: 3.0           # 介于合约(B300~$2.0)与现货(~$4.3)之间
+  rate_decay: -0.22             # 长期结构趋势(H100 2yr -65~70%); 短期短缺期可改-0.05
+  utilization: 0.75
+  ramp_months: 24
+  refresh_months: 48
+  refresh_capex_factor: 0.85
+  refresh_rate_factor: 0.8      # 新代GPU单位算力租金重置
+  residual_pct_at_refresh: 0.15 # 二手H100=新品40%佐证15%残值假设偏保守
+  extra_opex_kw_yr: 15
+
+# ---------------------------------------------------------------------------
+# L5 AI Factory（出售 token/推理, GP/GPU-hour 口径）
+# ---------------------------------------------------------------------------
+ai:
+  capex_per_kw_it: 30000
+  rate_per_kw_hr: 6.0           # AI 收入/kW-hr (token收入折算)
+  rate_decay: -0.28
+  utilization: 0.80
+  ramp_months: 18
+  refresh_months: 36
+  refresh_capex_factor: 0.85
+  refresh_rate_factor: 0.85
+  residual_pct_at_refresh: 0.12
+  extra_opex_kw_yr: 45          # MLOps/平台/人员
+
+# ---------------------------------------------------------------------------
+# 融资结构（分层, Debt Tenor ≤ 资产经济寿命）
+# ---------------------------------------------------------------------------
+finance:
+  L0_Dev:
+    enabled: false              # 开发期: 股本+开发贷，纯股本建模
+  L1_Power:
+    leverage: 0.65
+    rate: 0.062
+    tenor_months: 240
+    amort: sculpted
+    target_dscr: 1.35
+    min_dscr_covenant: 1.20
+    commitment_fee: 0.004
+    upfront_fee: 0.01
+    cash_sweep: 0.50
+    dsra_months: 6
+  L2_Shell:
+    leverage: 0.50
+    rate: 0.070
+    tenor_months: 180
+    amort: sculpted
+    target_dscr: 1.35
+    min_dscr_covenant: 1.25
+    commitment_fee: 0.004
+    upfront_fee: 0.01
+    cash_sweep: 0.50
+  L3_CriticalIT:
+    leverage: 0.60
+    rate: 0.065
+    tenor_months: 228
+    amort: sculpted
+    target_dscr: 1.30
+    min_dscr_covenant: 1.20
+    commitment_fee: 0.004
+    upfront_fee: 0.012
+    cash_sweep: 0.50
+    customer_capital_musd: 15   # 租户定金/预付(降低Sponsor Equity)
+  L35_Hosting:
+    leverage: 0.55
+    rate: 0.075
+    tenor_months: 180
+    amort: sculpted
+    target_dscr: 1.35
+    min_dscr_covenant: 1.25
+    commitment_fee: 0.004
+    upfront_fee: 0.012
+    cash_sweep: 0.50
+  L4_Compute:
+    leverage: 0.35              # GPU: 短久期设备融资 (CoreWeave实盘9.25%验证)
+    rate: 0.095                 # CoreWeave $2bn HY 5NC2 9.25% (MS 2025-07)
+    tenor_months: 48            # = refresh周期, 期限匹配
+    amort: mortgage
+    min_dscr_covenant: 1.20
+    commitment_fee: 0.005
+    upfront_fee: 0.015
+    cash_sweep: 0.75
+  L5_AI:
+    leverage: 0.25
+    rate: 0.120
+    tenor_months: 36
+    amort: mortgage
+    min_dscr_covenant: 1.20
+    commitment_fee: 0.005
+    upfront_fee: 0.015
+    cash_sweep: 0.75
+
+# ---------------------------------------------------------------------------
+# 蒙特卡洛参数分布（对数正态扰动）
+# ---------------------------------------------------------------------------
+mc:
+  L0_Dev:
+    hurdle: 0.25
+    params:
+      - {path: dev.exit_value_per_kw, dist: lognormal, sigma: 0.25}
+      - {path: dev.months, dist: normal, sigma: 0.2}
+      - {path: dev.ic_musd, dist: lognormal, sigma: 0.3}
+  L1_Power:
+    hurdle: 0.08
+    params:
+      - {path: power.capacity_payment_kw_mo, dist: lognormal, sigma: 0.18}
+      - {path: power.gas_price_gj, dist: lognormal, sigma: 0.30}
+      - {path: power.capex_per_kw, dist: lognormal, sigma: 0.15}
+      - {path: power.availability, dist: normal, sigma: 0.03}
+      - {path: power.carbon.price, dist: lognormal, sigma: 0.25}
+  L2_Shell:
+    hurdle: 0.095
+    params:
+      - {path: dc.shell_rent_kw_mo, dist: lognormal, sigma: 0.15}
+      - {path: dc.shell_capex_per_kw, dist: lognormal, sigma: 0.20}
+  L3_CriticalIT:
+    hurdle: 0.09
+    params:
+      - {path: dc.ready_rent_kw_mo, dist: lognormal, sigma: 0.15}
+      - {path: dc.ready_capex_per_kw, dist: lognormal, sigma: 0.18}
+      - {path: dc.escalator, dist: normal, sigma: 0.01}
+  L35_Hosting:
+    hurdle: 0.105
+    params:
+      - {path: dc.hosting_rent_kw_mo, dist: lognormal, sigma: 0.15}
+      - {path: dc.ready_capex_per_kw, dist: lognormal, sigma: 0.18}
+      - {path: dc.power_cost_per_mwh, dist: lognormal, sigma: 0.25}
+  L4_Compute:
+    hurdle: 0.15
+    params:
+      - {path: gpu.rate_per_kw_hr, dist: lognormal, sigma: 0.25}
+      - {path: gpu.rate_decay, dist: normal, sigma: 0.05}
+      - {path: gpu.utilization, dist: normal, sigma: 0.10}
+      - {path: gpu.capex_per_kw_it, dist: lognormal, sigma: 0.15}
+      - {path: gpu.residual_pct_at_refresh, dist: lognormal, sigma: 0.35}
+  L5_AI:
+    hurdle: 0.19
+    params:
+      - {path: ai.rate_per_kw_hr, dist: lognormal, sigma: 0.35}
+      - {path: ai.rate_decay, dist: normal, sigma: 0.06}
+      - {path: ai.utilization, dist: normal, sigma: 0.10}
+      - {path: ai.capex_per_kw_it, dist: lognormal, sigma: 0.15}
