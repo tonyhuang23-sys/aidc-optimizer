@@ -1,0 +1,4 @@
+mode,rate_GPU_hr,capex_MUSD,project_NPV_MUSD,project_IRR,equity_IRR,peak_equity_MUSD,min_DSCR_contract,MOIC
+L4-M Merchant,7.8,5829.0,-3174.7,-0.2842,-0.3064,5494.2,-0.068,0.18
+L4-C Contracted,9.36,3653.0,4759.9,0.8522,1.906,1351.6,5.342,8.13
+L4-S Strategic,9.36,2797.0,6420.5,1.4589,,361.4,6.036,35.11
