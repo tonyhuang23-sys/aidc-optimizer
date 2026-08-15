@@ -101,7 +101,8 @@ def build_compute_ext(cfg: dict, p: L4Params) -> AssetCase:
     revenue = np.zeros(n); opex = np.zeros(n)
     for m in range(cm, cm + life):
         c, k = divmod(m - cm, cycle) if cycles > 1 else (0, m - cm)
-        rate = rate0 * (g.get("refresh_rate_factor", 0.8) ** c) * ((1 + p.decay) ** k)
+        # p.decay is ANNUAL; k is months → use k/12 (P0-0 frequency fix)
+        rate = rate0 * (g.get("refresh_rate_factor", 0.8) ** c) * ((1 + p.decay) ** (k / 12.0))
         u = _ramp_utilization(m, cm, p.phys_util, ramp) if c == 0 else p.phys_util
         # take-or-pay: customer bills the contracted floor from COD (no ramp on billing)
         billable = p.billable_util if take_or_pay else u

@@ -1,0 +1,13 @@
+{
+  "merchant_npv0": 7.64,
+  "merchant_vs_l3": 9.11,
+  "c1_vs_l3": 4.3,
+  "c2_vs_l3": 4.9,
+  "s_vs_l3": 4.02,
+  "c1_c2_delta_after": 917.4,
+  "c1_c2_delta_before_bug": 5108,
+  "merchant_780_after": 78.3,
+  "merchant_780_before_bug": -3173,
+  "merchant_be_after": 7.64,
+  "merchant_be_before_bug": 30
+}

@@ -1,0 +1,14 @@
+case,delta_vs_c1,note,npv,peak,rate_gpuh
+C1_fixed,,unchanged (decay=0),4761.1,1351,
+C2_stepdown_6pct_yr_FIXED,917.4,was -347 with monthly bug,3843.7,1351,
+C3_repricing_15pct_yr_FIXED,,still positive,2391.6,1362,
+L4M_7.80_decay22_FIXED,,was -3173 with monthly bug,78.3,2362,
+L4M_BE_npv0,,was ~30 with bug,,,7.64
+L4M_BE_vs_L3,,,,,9.11
+L4C_list,,,4761.1,1351,
+L4C_bulk702,,,2884.9,1404,
+L4C_bulk702_step6yr,,mild step-down still >> L3,2196.9,1404,
+L4S_list_fixed_bs,,,5284.6,438,
+L4S_bulk702,,,3277.6,500,
+L3,,,706.5,317,
+C1_C2_delta_FIXED,,was 5108 with bug — price-lock premium much smaller,917.4,,

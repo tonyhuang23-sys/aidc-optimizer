@@ -281,7 +281,8 @@ def _build_gpu_layer(cfg: dict, name: str, layer: str, is_ai_factory: bool) -> A
     for m in range(cm, cm + life):
         c, k = divmod(m - cm, cycle)
         # 每代 GPU 上市价按 refresh_rate_factor 重置
-        rate = rate0 * (g.get("refresh_rate_factor", 0.8) ** c) * (1 + decay) ** k
+        # rate_decay is ANNUAL; k is months → use k/12 (P0-0 frequency fix)
+        rate = rate0 * (g.get("refresh_rate_factor", 0.8) ** c) * (1 + decay) ** (k / 12.0)
         u = _ramp_utilization(m, cm, steady_u, ramp) if c == 0 else steady_u
         hrs = 730
         revenue[m] = it_mw * 1000 * u * hrs * rate

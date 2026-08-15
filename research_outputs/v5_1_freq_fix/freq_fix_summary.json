@@ -1,0 +1,18 @@
+{
+  "bug": "annual decay applied as monthly: (1+g)**k with k=months",
+  "fix": "(1+g)**(k/12)",
+  "c1_c2_delta_before": 5108,
+  "c1_c2_delta_after": 917,
+  "c2_npv_before": -347,
+  "c2_npv_after": 3843.7,
+  "merchant_780_before": -3173,
+  "merchant_780_after": 78.3,
+  "merchant_be_before": 30,
+  "merchant_be_after": 7.64,
+  "c2_still_beats_l3": true,
+  "mild_stepdown_destroys_contract": false,
+  "files": [
+    "aidc_optimizer/models.py",
+    "research_l4.py"
+  ]
+}
