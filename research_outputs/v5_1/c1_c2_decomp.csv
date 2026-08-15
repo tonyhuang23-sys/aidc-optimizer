@@ -1,0 +1,2 @@
+delta_npv,pv_delta_revenue,pv_delta_opex,residual_unexplained,same_billable,same_capex,same_contract_months,c1_extends_beyond_5y,pass_audit
+5108.0,6541.6,0.0,-1433.6,True,True,True,False,False

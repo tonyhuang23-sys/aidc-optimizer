@@ -1,0 +1,4 @@
+case,backstop_base,npv,peak,note
+wrong_double_count,1-phys_util=0.10,5808.2,404.4,inflated
+fixed_residual_only,1-contracted=0.05,5284.6,404.4,correct
+no_backstop,0,4761.1,404.4,ToP only

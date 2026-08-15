@@ -1,0 +1,8 @@
+item,value
+total_capacity,1.0
+customer_contracted,0.95
+physical_usage,0.9
+paid_but_unused_ToP,0.05
+residual_unsold,0.05
+vendor_backstop_max,0.05
+double_count_if_using_1_phys,0.05

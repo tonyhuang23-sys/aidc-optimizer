@@ -1,0 +1,18 @@
+{
+  "p0_1_cashflow_math_ok": true,
+  "p0_1_note": "\u0394NPV\u2248$5.1B explained by cumulative rate path: C2 -6%/yr compounds to ~$0.35/GPUh by Y5; PV(\u0394Rev)=$6.5B; residual vs tax/WACC timing",
+  "p0_1_headline_fixed_top_value": "KEEP but attribute to price-path lock not generic long contract",
+  "p0_2_list_price_as_bulk_5y": "REJECT as base; TCV/CAPEX=6.5x unrealistic for 42k GPU",
+  "p0_2_max_discount_vs_l3_l4c": "54%",
+  "p0_2_recommended_base_volume_factor": 0.7,
+  "p0_3_remove_capex_21300": true,
+  "p0_3_unified_b200_per_gpu": 60000,
+  "p0_4_zero_loss_claim": "REJECTED",
+  "p0_4_loss_rate": 0.0005,
+  "p0_4_ce05": 3573.1,
+  "p0_5_double_count_musd": 523.6,
+  "p0_5_fixed_S_npv": 5284.6,
+  "corrected_L4C_list": 4761.1,
+  "corrected_L4S_fixed_bs": 5284.6,
+  "l3_npv": 706.5
+}

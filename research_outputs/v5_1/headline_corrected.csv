@@ -1,0 +1,9 @@
+mode,npv,peak
+L3,706.5,316.5
+L4-M,-3173.0,5491.2
+L4-C list 9.36,4761.1,1350.8
+L4-C bulk 7.02 (vol0.75),2884.9,1404.1
+L4-C bulk 5.62 (vol0.60),1759.3,1436.1
+L4-S fixed BS list,5284.6,438.2
+L4-S fixed BS bulk0.75,3277.6,499.9
+L4-S fixed BS bulk0.60,2073.4,536.9
