@@ -1,0 +1,16 @@
+vintage_id,gpu_model,market_state,purchase_per_gpu,capex_per_it_kw,entry_rate_gpuh,avg_path_rate_gpuh,util,residual_at_48,confidence,npv_musd,project_irr,equity_irr,peak_equity_musd,capex_musd,moic,min_dscr,note,stack
+H100-2023,H100,S1_Scarcity_Boom,40300,31434.0,4.5,4.046,0.85,0.35,0.55,-2155.7,-0.1413,-0.1659,4313.4,5745.2,0.45,0.134,IREN SEC ~$40k/GPU purchase anchor; rate path estimated,Greenfield
+H100-2024,H100,S1_Scarcity_Boom,38700,30186.0,3.8,3.417,0.82,0.3,0.55,-2326.5,-0.1701,-0.1936,4417.3,5560.5,0.37,0.101,IREN 2024-02 ~$22M/568≈$38.7k,Greenfield
+H100-2025,H100,S4_Tech_Transition,35000,27300.0,2.8,2.435,0.78,0.25,0.6,-2863.2,-0.2719,-0.2937,4883.9,5133.4,0.18,-0.069,H100 1yr $1.70 trough late-2025 then +40% bounce,Greenfield
+H100-2026F,H100,S2_Balanced,32000,24960.0,3.2,2.049,0.75,0.15,0.65,-2941.9,-0.2997,-0.3183,4807.3,4787.1,0.14,-1706600135381773.2,Forward new investment; long-term decay -22%/yr,Greenfield
+B200-2026F,B200,S2_Balanced,60000,31980.0,7.8,4.995,0.75,0.15,0.7,-3173.0,-0.2842,-0.3064,5491.2,5826.0,0.18,-0.068,Public-market median rate; full-stack ~$32k/IT-kW,Greenfield
+H100-2023,H100,S1_Scarcity_Boom,40300,31434.0,4.5,,0.85,,0.55,-1803.6,-0.1423,-0.1651,3832.1,5285.2,0.48,,IREN SEC ~$40k/GPU purchase anchor; rate path estimated | brownfield stack,Brownfield
+H100-2024,H100,S1_Scarcity_Boom,38700,30186.0,3.8,,0.82,,0.55,-1973.7,-0.1763,-0.1971,3933.5,5100.5,0.39,,IREN 2024-02 ~$22M/568≈$38.7k | brownfield stack,Brownfield
+H100-2025,H100,S4_Tech_Transition,35000,27300.0,2.8,,0.78,,0.6,-2505.7,-0.2976,-0.3143,4386.5,4673.4,0.17,,H100 1yr $1.70 trough late-2025 then +40% bounce | brownfield stack,Brownfield
+H100-2026F,H100,S2_Balanced,32000,24960.0,3.2,,0.75,,0.65,-2574.3,-0.3299,-0.344,4307.6,4327.1,0.13,,Forward new investment; long-term decay -22%/yr | brownfield stack,Brownfield
+B200-2026F,B200,S2_Balanced,60000,31980.0,7.8,,0.75,,0.7,-2815.5,-0.3097,-0.3269,4994.0,5366.0,0.18,,Public-market median rate; full-stack ~$32k/IT-kW | brownfield stack,Brownfield
+H100-2023,H100,S1_Scarcity_Boom,40300,31434.0,4.5,,0.85,,0.55,-1561.4,-0.1425,-0.1637,3505.0,4972.2,0.5,,IREN SEC ~$40k/GPU purchase anchor; rate path estimated | GPU-only incremental,GPU-only
+H100-2024,H100,S1_Scarcity_Boom,38700,30186.0,3.8,,0.82,,0.55,-1731.0,-0.1811,-0.1994,3604.7,4787.5,0.41,,IREN 2024-02 ~$22M/568≈$38.7k | GPU-only incremental,GPU-only
+H100-2025,H100,S4_Tech_Transition,35000,27300.0,2.8,,0.78,,0.6,-2260.4,-0.3198,-0.3317,4048.1,4360.4,0.17,,H100 1yr $1.70 trough late-2025 then +40% bounce | GPU-only incremental,GPU-only
+H100-2026F,H100,S2_Balanced,32000,24960.0,3.2,,0.75,,0.65,-2321.5,-0.3563,-0.3662,3967.4,4014.1,0.12,,Forward new investment; long-term decay -22%/yr | GPU-only incremental,GPU-only
+B200-2026F,B200,S2_Balanced,60000,31980.0,7.8,,0.75,,0.7,-2569.7,-0.331,-0.3438,4655.3,5053.0,0.18,,Public-market median rate; full-stack ~$32k/IT-kW | GPU-only incremental,GPU-only

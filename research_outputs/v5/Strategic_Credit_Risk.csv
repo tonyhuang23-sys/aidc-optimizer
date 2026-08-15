@@ -1,0 +1,6 @@
+scenario,npv,peak,note
+Base L4-S no default,6420.5,361.4,full 5Y fixed take-or-pay + backstop
+Customer default/exit at year 3,3912.2,361.4,contract cut to 36 months
+No NVIDIA backstop,5373.4,361.4,backstop=0
+Renewal at -30% rate,3855.0,361.4,repricing cliff at renewal
+"Refinancing freeze (Kd 9.5%, lev55)",6420.5,533.6,lose strategic financing

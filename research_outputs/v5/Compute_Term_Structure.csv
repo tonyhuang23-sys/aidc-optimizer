@@ -1,0 +1,5 @@
+contract_id,label,rate,npv,irr,peak,dscr,prepay_pct,tcv,customer_capital
+C1_5Y_Fixed,5Y Fixed Take-or-pay,9.36,4759.9,0.8522,526.7,5.342,0.2,16607.0,3321.4
+C2_5Y_Stepdown,5Y Scheduled Step-down ~-6%/yr,9.36,-348.0,0.0689,526.7,0.077,0.2,16607.0,3321.4
+C3_Benchmark_Repricing,5Y with annual-ish benchmark repricing,9.36,-1798.6,-0.2224,1243.2,-0.097,0.1,15732.9,1573.3
+C4_Tech_Refresh,3Y tech-refresh-linked,9.36,-820.5,-0.084,526.7,0.0,0.15,9964.2,1494.6
