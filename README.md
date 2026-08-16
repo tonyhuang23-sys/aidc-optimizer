@@ -108,4 +108,14 @@ uncertainty.
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+**Apache License 2.0 with Commons Clause.** See [LICENSE](LICENSE).
+
+This is **not** OSI-approved open source. You may use, study, modify,
+and redistribute the code and papers for personal use, academic
+research, and internal evaluation, if you keep the copyright and
+license notices.
+
+You may **not Sell** the Software. "Sell" includes charging a third
+party for a product, hosted service, or consulting whose value
+derives substantially from this repository. That requires a separate
+commercial license from Tony Huang (`tonyhwong@wntenergy.ca`).
