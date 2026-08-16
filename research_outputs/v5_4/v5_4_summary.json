@@ -1,0 +1,16 @@
+{
+  "n_allrisk": 800,
+  "l3_ce": 248.3,
+  "m1_ce": -2232.7,
+  "m2_ce": -1332.6,
+  "m_mix_ce": -1028.9,
+  "m_gpuonly_ce": -438.9,
+  "c_bulk_ce": 1670.6,
+  "s_bulk_ce": 2067.3,
+  "naming": {
+    "bulk": "illustrative_bulk_case_not_calibrated",
+    "merchant_7_8": "nonspot_public_mix_reference_not_pure_spot",
+    "golden_yaml": "legacy_3.0_IT_kWh_approx_5.63_GPUh"
+  },
+  "note": "All-risk CE apple-to-apple; GPU-only in main path; IRASR L3\u2192L4 table"
+}

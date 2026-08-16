@@ -1,0 +1,10 @@
+mode,npv,peak,allrisk_ce,loss_rate,note
+L3 Critical IT,706.5,316.5,248.3,0.0225,structural sweet spot
+L4-M1 Spot $4.25 full-stack,-1622.5,3699.4,-2232.7,0.9925,pure merchant spot
+L4-M2 On-demand $6.90 full-stack,-352.9,2372.9,-1332.6,0.7788,short-term on-demand
+L4-M mix-ref $7.80 full-stack,78.3,2362.1,-1028.9,0.6038,non-spot public mix ref — NOT pure spot
+L4-M GPU-only $7.80,667.4,1849.6,-438.9,0.36,sunk power+DC — different decision
+L4-C Fixed illustrative bulk $7.02,2884.9,1404.1,1670.6,0.0037,illustrative bulk NOT calibrated base
+L4-C Step-6%/yr illustrative bulk,2196.9,1404.1,1183.5,0.0138,mild step-down
+L4-S Fixed illustrative bulk $7.02,3277.6,499.9,2067.3,0.0025,illustrative bulk + residual BS
+L4-S list upper $9.36,5284.6,438.2,3661.3,0.0,list upper bound

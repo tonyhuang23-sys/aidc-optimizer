@@ -1,0 +1,7 @@
+metric,mode,rate
+NPV_parity,L4-C Fixed,4.3
+NPV_parity,L4-S Fixed,4.02
+NPV_parity,L4-M -22%/yr,9.11
+NPV_zero,L4-M -22%/yr,7.64
+CE_parity,L4-C Fixed CE≈L3,4.72
+CE_parity,L4-S Fixed CE≈L3,4.22

@@ -1,0 +1,4 @@
+type,pC,pS,CE_M,CE_C,CE_S,CE_L3,EV_pursue_C,EV_pursue_S,EV_stay_L3,best,delta_best_vs_L3
+A Uncontracted,0.1,0.02,-1028.9,1670.6,2067.3,248.3,-779.0,-808.2,248.3,L3,0.0
+B Contracted capability,0.85,0.2,-1028.9,1670.6,2067.3,248.3,1245.7,1283.1,248.3,S,1034.8
+C Strategic platform,0.95,0.7,-1028.9,1670.6,2067.3,248.3,1515.6,1749.4,248.3,S,1501.1
