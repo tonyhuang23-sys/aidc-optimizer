@@ -659,7 +659,7 @@ $$\boxed{\mathrm{Asset\ Value}\neq\mathrm{Hardware\ Value}}$$
 [11] NVIDIA. Compute Financing Platforms（超过 \$500B）. 2026-08-10.  
 [12] Reuters / WSJ. NVIDIA–OpenAI 拟议约 \$250B 支持. 2026-07-26.（**proposed**）  
 [13] Reuters / WSJ. 拟议支持缩减至首期少于 \$120B. 2026-08-14.（**proposed / under discussion**）  
-[14] WNT. 到机架增量 / CentHill 棕地口径（内部实盘，公开包已脱敏）.  
+[14] WNT. 到机架增量 / 匿名棕地项目口径（内部实盘，公开包已脱敏）.  
 [15] IREN. SEC 披露 H100 采购（2023-08；2024-02）.  
 [16] CoreWeave Pricing. HGX H100/B200 On-demand 与 Spot. 2026-08 检索. https://www.coreweave.com/pricing  
 [17] Lambda Pricing / 1-Click Clusters. H100/B200 Instance 与 Dedicated. 2026-08 检索. https://lambda.ai/pricing  

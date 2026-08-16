@@ -740,7 +740,7 @@ $$\boxed{\mathrm{Asset\ Value}\neq\mathrm{Hardware\ Value}}$$
 [11] NVIDIA Corporation. Compute Financing Platforms announcement (>$500B third-party platforms). 2026-08-10.  
 [12] Reuters / The Wall Street Journal. Reporting on a proposed NVIDIA–OpenAI support package of about \$250B. 2026-07-26. (**proposed**)  
 [13] Reuters / The Wall Street Journal. Subsequent reporting that an initial tranche may be less than \$120B. 2026-08-14. (**proposed / under discussion**)  
-[14] WNT Energy. Rack-ready increment / CentHill brownfield calibration (internal actuals; public bundle anonymized).  
+[14] WNT Energy. Rack-ready increment / anonymized brownfield calibration (internal actuals; public bundle anonymized).  
 [15] IREN Limited. SEC disclosures of H100 purchases (August 2023; February 2024).  
 [16] CoreWeave. *Pricing* (HGX H100/B200 On-demand and Spot). Retrieved 2026-08. https://www.coreweave.com/pricing  
 [17] Lambda. *Pricing / 1-Click Clusters* (H100/B200 Instance and Dedicated). Retrieved 2026-08. https://lambda.ai/pricing  

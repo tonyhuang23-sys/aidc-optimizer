@@ -110,7 +110,10 @@ def incremental_analysis(results: List[LayerResult]) -> List[Dict]:
             "ΔNPV $M": d_npv / 1e6,
             "ΔReturn (ΔNPV/ΔCAPEX)": (d_npv / d_capex) if d_capex > 1e6 else np.nan,
             "ΔEquity IRR": (b.equity_irr - a.equity_irr) if (a.equity_irr is not None and b.equity_irr is not None) else np.nan,
-            "边际决策": "值得延伸" if (d_npv > 0 and d_capex > 1e6) else ("无需增量资本" if d_capex <= 1e6 else "增值不足"),
+            "边际决策": (
+                "筛选通过：增量NPV为正" if (d_npv > 0 and d_capex > 1e6)
+                else ("无需增量资本" if d_capex <= 1e6 else "筛选未过：增值不足")
+            ),
         })
     return rows
 
@@ -121,4 +124,32 @@ def three_irr_view(results: List[LayerResult]) -> Dict[str, float]:
         "Development IRR (Land→Exit)": by["L0_Dev"].project_irr if "L0_Dev" in by else None,
         "Infrastructure IRR (Power+DC)": by["L3_CriticalIT"].equity_irr if "L3_CriticalIT" in by else None,
         "Compute IRR (GPU)": by["L4_Compute"].equity_irr if "L4_Compute" in by else None,
+    }
+
+
+def recommend_layer(results: List[LayerResult], has_financeable_contract: bool = False) -> Dict[str, object]:
+    """Screening rule: no financeable compute contract -> stay at L3.
+
+    Merchant is never the fallback. Incremental NPV>0 is only a screen, not
+    an underwriting recommendation to extend the stack.
+    """
+    by = {r.layer: r for r in results}
+    l3 = by.get("L3_CriticalIT")
+    l4 = by.get("L4_Compute")
+    if not has_financeable_contract:
+        return {
+            "layer": "L3_CriticalIT",
+            "reason": "无融资级算力合同，默认停在 L3；不把 Merchant 当回退。",
+            "npv_musd": None if l3 is None else l3.project_npv / 1e6,
+        }
+    if l4 is not None and l3 is not None and l4.project_npv > l3.project_npv:
+        return {
+            "layer": "L4_Compute",
+            "reason": "已有融资级合同，且 L4 相对 L3 的增量NPV为正（仍为筛选口径）。",
+            "npv_musd": l4.project_npv / 1e6,
+        }
+    return {
+        "layer": "L3_CriticalIT",
+        "reason": "虽有合同线索，但筛选增量NPV未超过 L3。",
+        "npv_musd": None if l3 is None else l3.project_npv / 1e6,
     }

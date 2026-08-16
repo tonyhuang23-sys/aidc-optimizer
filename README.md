@@ -83,6 +83,9 @@ a forecast for any named project.
   Illustrative bulk $7.02 Contracted CE ≈ **+$1.67 B** (IRASR_econ ≈ **+0.92**);
   Strategic ≈ **+$2.11 B** (IRASR_econ ≈ **+2.37**).
   **$7.02 = 9.36 × 0.75 is an author scenario, not a transacted rate.**
+  The S-path backstop is now residual-unsold only and L4 default CAPEX is
+  B200 all-in ~$60k/GPU; Headline N=10,000 numbers are the committed
+  research_outputs/v6_1 pack and have **not** been re-run in 1.2.1.
 - After the annual-decay frequency fix, the 2×2×2 ranking is
   **contract ≫ vintage > asset stack**. Four of eight cells are NPV-positive.
 - Power-only under market-coherent **P1** is an infrastructure-style Equity IRR

@@ -87,9 +87,9 @@ AIDC investment is often reduced to a single "data center IRR", obscuring two st
 | Power-only tolling | L1 | Firm MW | $/kW-月容量费 | Greenlight–Meta[8] |
 | Powered Shell | L2 | 已通电壳体 | $/kW-月 | — |
 | AI-ready Critical IT | L3 | Critical IT容量 | $/kW-月 | TeraWulf–Anthropic[8] |
-| GPU托管（到机架） | L3.5 | 机架+电力+冷却+运维 | $/kW-月(含电费) | CentHill实盘[14] |
+| GPU托管（到机架） | L3.5 | 机架+电力+冷却+运维 | $/kW-月(含电费) | 匿名棕地项目实盘[14] |
 | 算力出租 | L4 | GPU小时 | $/GPU-hr =$/IT-kW-hr | 市场价格指数[6][12] |
-| Managed Inference（L5a） | L5a | 托管推理服务 | $/M token | CentHill GLM52模型[14] |
+| Managed Inference（L5a） | L5a | 托管推理服务 | $/M token | 匿名棕地项目 GLM52模型[14] |
 | *Frontier Model Owner（L5b）* | *L5b* | *Token/API/订阅* | *GP/GPU-hr* | *仅作价值归属证据（§5.5），不建模* |
 
 ### 3.2 资产层模型
@@ -323,14 +323,14 @@ L3层自身的风险调整指标（独立MC, N=1500）：E[NPV]=+$719M，P5=+$37
 [11] JEFFXI Grand Prairie项目实盘造价. WNT内部资料, 2026.
 [12] Epoch AI / SemiAnalysis GPU Pricing Index / AIMultiple（2026-08检索）.
 [13] WNT技术研究组. *AI基础设施融资中的循环支持模式*（v3.1）. 内部研究, 2026.
-[14] WNT技术研究组. *万卡集群选卡分析*；*20MW矿场改造AIDC方案设计v4.0*（CentHill实盘）及*20MW GLM52推理工厂经济模型v1*. 内部研究, 2026.
+[14] WNT技术研究组. *万卡集群选卡分析*；*20MW矿场改造AIDC方案设计v4.0*（匿名棕地项目实盘）及*20MW GLM52推理工厂经济模型v1*. 内部研究, 2026.
 [15] WNT技术研究组. *GPU价格租金三源核实报告*. 2026-08-15.
 
 ---
 
 ## 附录A 参数全量溯源表（经济性指标·来源·取值方法）
 
-来源代码：**[S1]** JEFFXI实盘造价[11]｜**[S2]** TeraWulf–Anthropic[8]｜**[S3]** Greenlight[8]｜**[S4]** CentHill Sherbrooke v4.0实盘[14]｜**[S5]** 三源核实报告[15]｜**[S6]** Morgan Stanley[4]｜**[S7]** 加阿能源MOU/Bill 30[10]｜**[S8]** 万卡集群选卡[14]｜**[S9]** 行业基准数据库（aidc-scheme-design skill，北美区间）。置信度沿用[15]的0–1评分。
+来源代码：**[S1]** JEFFXI实盘造价[11]｜**[S2]** TeraWulf–Anthropic[8]｜**[S3]** Greenlight[8]｜**[S4]** 匿名棕地项目 v4.0实盘[14]｜**[S5]** 三源核实报告[15]｜**[S6]** Morgan Stanley[4]｜**[S7]** 加阿能源MOU/Bill 30[10]｜**[S8]** 万卡集群选卡[14]｜**[S9]** 行业基准数据库（aidc-scheme-design skill，北美区间）。置信度沿用[15]的0–1评分。
 
 ### A.1 参考项目与税务
 

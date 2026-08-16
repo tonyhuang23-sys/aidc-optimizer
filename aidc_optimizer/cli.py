@@ -20,7 +20,7 @@ import yaml
 
 from .models import BUILDERS, DEFAULT_WACC
 from .risk import run_full_pipeline, monte_carlo, tornado
-from .evaluate import five_dimension_table, incremental_analysis, three_irr_view
+from .evaluate import five_dimension_table, incremental_analysis, three_irr_view, recommend_layer
 from .report import bubble_chart, mc_histogram, tornado_chart, write_markdown_report, export_csv
 
 
@@ -90,6 +90,8 @@ def main(argv=None):
                   f"ΔNPV ${row['ΔNPV $M']:,.0f}M, ΔReturn={dr:.2f} [{row['边际决策']}]"
                   if dr == dr else
                   f"  {row['From']} → {row['To']}: ΔCAPEX ${row['ΔCAPEX $M']:,.0f}M, ΔNPV ${row['ΔNPV $M']:,.0f}M")
+        rec = recommend_layer(results)
+        print("筛选建议: %s — %s" % (rec["layer"], rec["reason"]))
         print()
 
     out_dir = args.out

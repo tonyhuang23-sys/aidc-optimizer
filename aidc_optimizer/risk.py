@@ -84,6 +84,7 @@ def monte_carlo(cfg: dict, case_key: str, n_sims: int = 500, seed: int = 42,
     mc_cfg = (mc_section or cfg.get("mc", {})).get(layer, {})
     hurdle = mc_cfg.get("hurdle", DEFAULT_WACC.get(layer, 0.12))
     npvs, irrs, eqirrs = [], [], []
+    n_fail = 0
     for i in range(n_sims):
         c = copy.deepcopy(cfg)
         for spec in mc_cfg.get("params", []):
@@ -102,7 +103,10 @@ def monte_carlo(cfg: dict, case_key: str, n_sims: int = 500, seed: int = 42,
             irrs.append(r.project_irr if r.project_irr is not None else np.nan)
             eqirrs.append(r.equity_irr if r.equity_irr is not None else np.nan)
         except Exception:
+            n_fail += 1
             continue
+    if n_sims and n_fail / n_sims > 0.20:
+        raise RuntimeError('Monte Carlo failure rate too high for %s: %s/%s' % (case_key, n_fail, n_sims))
     npvs = np.array(npvs)
     if len(npvs) == 0:
         nan = float("nan")
@@ -141,9 +145,10 @@ def tornado(cfg: dict, case_key: str, delta: float = 0.15,
                 r = run_full_pipeline(c, case_key)
                 row[f"npv_{tag}"] = r.project_npv / 1e6
                 row[f"eqirr_{tag}"] = r.equity_irr
-            except Exception:
+            except Exception as exc:
                 row[f"npv_{tag}"] = float("nan")
                 row[f"eqirr_{tag}"] = float("nan")
+                row['fail_%s' % tag] = type(exc).__name__
         row["npv_swing"] = abs(row.get("npv_high", 0) - row.get("npv_low", 0))
         out.append(row)
     out.sort(key=lambda x: -(x["npv_swing"] if x["npv_swing"] == x["npv_swing"] else 0))

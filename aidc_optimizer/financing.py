@@ -35,7 +35,7 @@ class DebtInputs:
     commitment_fee: float = 0.004         # 年化，未提取额
     upfront_fee: float = 0.01             # 一次性，按承诺额
     cash_sweep: float = 0.50              # 超额现金流扫仓比例
-    dsra_months: int = 6                  # 债务储备（从首笔分配中扣留）
+    dsra_months: int = 0                  # 债务储备月数；0=关闭（v3.3 黄金路径）
     refi_enable: bool = False
     refi_month: int = 0                   # COD 后月数
     refi_exit_multiple: float = 0.0       # Net Debt/EBITDA
@@ -182,11 +182,19 @@ def apply_financing(
             levered_cf[m] = 0.0
             balance -= 0
 
+    # DSRA: lock N months of first-period debt service at COD, release at end.
+    # Default dsra_months=0 keeps the v3.3 golden path unchanged.
+    dsra_cash = 0.0
+    if debt_in.dsra_months > 0 and term_debt > 0 and tenor > 0:
+        first_ds = term_debt * r_m + float(principal_sched[cod] if cod < n else 0.0)
+        dsra_cash = max(0.0, debt_in.dsra_months * first_ds)
+        equity_gross[min(cod, n - 1)] += dsra_cash
+
     equity_cf = -equity_gross.copy()
     equity_cf[cod:] += levered_cf[cod:]
     # 期末残值归属股本（扣除剩余债务）
     residual = case.residual
-    equity_cf[-1] += residual - max(0.0, balance)
+    equity_cf[-1] += residual - max(0.0, balance) + dsra_cash
 
     # ---------- 再融资（Capital Recycling） ----------
     refi_release = 0.0

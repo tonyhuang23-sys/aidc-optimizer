@@ -1,12 +1,6 @@
 # ============================================================================
-# AIDC 投资价值链评估 — Alberta 参数包
-# 基准: 100 MW 发电容量 BTM 专用 + AIDC，PUE 1.25 → 80 MW Critical IT
-#
-# 造价来源: 9E级二手燃机含业主费用 $1,150/kW（市场校准，置信0.85）
-# 碳价: TIER CA$130/t (Canada-Alberta Energy MOU 2025-11, CER暂停)
-# 租金基准: TeraWulf-Anthropic $197/kW-mo (2026)
-# 气价: AECO ~CA$2.2/GJ ≈ US$1.6/GJ
-# 税率: 联邦15% + 阿省8% = 23%
+# Project template. Copy this file, then edit reference / power / dc / gpu.
+# Based on the public Alberta pack. Screening-grade only.
 # ============================================================================
 
 jurisdiction: Alberta

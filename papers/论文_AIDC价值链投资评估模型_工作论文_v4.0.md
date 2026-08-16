@@ -286,7 +286,7 @@ Financeability是**资产价值本身的构成部分**：优质合约同时改�
 [11] JEFFXI Grand Prairie项目实盘造价. WNT内部资料, 2026.
 [12] Epoch AI / SemiAnalysis GPU Pricing Index / AIMultiple Cloud GPU Index（2026-08检索）.
 [13] WNT技术研究组. *AI基础设施融资中的循环支持模式*. 内部研究, 2026.
-[14] WNT技术研究组. *万卡集群选卡分析* 及 *20MW矿场改造AIDC方案设计v4.0*（CentHill口径）. 内部研究, 2026.
+[14] WNT技术研究组. *万卡集群选卡分析* 及 *20MW矿场改造AIDC方案设计v4.0*（匿名棕地项目口径）. 内部研究, 2026.
 [15] WNT技术研究组. *GPU价格租金三源核实报告*. 2026-08-15.
 [16] **CoreWeave Pricing / 官方定价与融资披露**（HGX H100/B200 On-demand与Spot报价、S-1/投资者关系committed contracts与NVIDIA capacity backstop）. 2026-08检索. https://www.coreweave.com/pricing
 [17] **Lambda Pricing / 1-Click Clusters**（H100/B200 Instance与Dedicated Cluster公开报价）. 2026-08检索. https://lambda.ai/pricing

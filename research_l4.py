@@ -58,9 +58,12 @@ class L4Params:
 
 
 L4_CASES = [
-    L4Params("L4-M Merchant", 7.80, -0.22, 0.75, 0.75, 0.35, 0.095, 48, 0.0, 0.0, 32000, "Merchant GPU rental"),
-    L4Params("L4-C Contracted", 9.36, 0.00, 0.90, 0.95, 0.55, 0.070, 60, 150.0, 0.0, 32000, "Contracted dedicated cluster", contract_months=60),
-    L4Params("L4-S Strategic", 9.36, 0.00, 0.90, 0.95, 0.70, 0.059, 60, 500.0, 0.75, 21300, "Strategic neocloud (CoreWeave-like)", contract_months=60),
+    L4Params("L4-M Merchant", 7.80, -0.22, 0.75, 0.75, 0.35, 0.095, 48, 0.0, 0.0,
+             60000 * GPU_PER_IT_KW, "Merchant GPU rental"),
+    L4Params("L4-C Contracted", 9.36, 0.00, 0.90, 0.95, 0.55, 0.070, 60, 150.0, 0.0,
+             60000 * GPU_PER_IT_KW, "Contracted dedicated cluster", contract_months=60),
+    L4Params("L4-S Strategic", 9.36, 0.00, 0.90, 0.95, 0.70, 0.059, 60, 500.0, 0.75,
+             60000 * GPU_PER_IT_KW, "Strategic neocloud (CoreWeave-like)", contract_months=60),
 ]
 
 
@@ -108,8 +111,9 @@ def build_compute_ext(cfg: dict, p: L4Params) -> AssetCase:
         billable = p.billable_util if take_or_pay else u
         revenue[m] = it_mw * 1000 * 730 * billable * rate
         if p.backstop_rate_pct_market > 0:
-            unused = max(0.0, 1 - u)
-            revenue[m] += it_mw * 1000 * 730 * unused * rate * p.backstop_rate_pct_market
+            # Residual unsold only. Do not pay backstop on take-or-pay unused (1-u).
+            unsold = max(0.0, 1.0 - billable)
+            revenue[m] += it_mw * 1000 * 730 * unsold * rate * p.backstop_rate_pct_market
         mwh = it_mw * pue * 730 * u
         opex[m] = mwh * power_price + it_mw * 1000 * (extra + dc_opex)
     for m, amt in residual_sales:

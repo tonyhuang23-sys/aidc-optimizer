@@ -194,19 +194,36 @@ class LayerResult:
         }
 
 
+def _fmt_pct(v) -> str:
+    return f"{v:.1%}" if v is not None and v == v else "—"
+
+
+def _fmt_num(v, nd: int = 1) -> str:
+    return f"{v:,.{nd}f}" if v is not None and v == v else "—"
+
+
 def format_summary_table(results: List[LayerResult]) -> str:
-    """统一对比表。"""
-    import pandas as pd
+    """统一对比表（纯字符串，不依赖 pandas）。"""
     rows = [r.summary() for r in results]
-    df = pd.DataFrame(rows)
-    pct = ["Project IRR", "Equity IRR", "MOIC"]
-    for c in pct:
-        df[c] = df[c].astype(float).map(lambda v: f"{v:.1%}" if v == v and v is not None else "—")
-    for c in ["CAPEX $M", "Equity $M", "Rev Y1 $/MW-yr", "EBITDA Y1 $/MW-yr", "NPV $M", "NPV $/MW"]:
-        df[c] = df[c].astype(float).map(lambda v: f"{v:,.1f}")
-    for c in ["CAPEX $/kW", "Equity $/kW"]:
-        df[c] = df[c].astype(float).map(lambda v: f"{v:,.0f}")
-    df["NPV/Equity"] = df["NPV/Equity"].astype(float).map(lambda v: f"{v:,.2f}" if v == v else "—")
-    df["Min DSCR"] = df["Min DSCR"].astype(float).map(lambda v: f"{v:.2f}" if v == v else "—")
-    df["Payback (mo)"] = df["Payback (mo)"].map(lambda v: str(int(v)) if v == v and v is not None else "—")
-    return df.to_string(index=False)
+    if not rows:
+        return ""
+    headers = list(rows[0].keys())
+    formatted = []
+    for row in rows:
+        out = dict(row)
+        out["Project IRR"] = _fmt_pct(row["Project IRR"])
+        out["Equity IRR"] = _fmt_pct(row["Equity IRR"])
+        out["MOIC"] = _fmt_pct(row["MOIC"])
+        for c in ["CAPEX $M", "Equity $M", "Rev Y1 $/MW-yr", "EBITDA Y1 $/MW-yr", "NPV $M", "NPV $/MW"]:
+            out[c] = _fmt_num(row[c], 1)
+        for c in ["CAPEX $/kW", "Equity $/kW"]:
+            out[c] = _fmt_num(row[c], 0)
+        out["NPV/Equity"] = _fmt_num(row["NPV/Equity"], 2)
+        out["Min DSCR"] = _fmt_num(row["Min DSCR"], 2)
+        pb = row["Payback (mo)"]
+        out["Payback (mo)"] = str(int(pb)) if pb is not None and pb == pb else "—"
+        formatted.append(out)
+    widths = {h: max(len(h), *(len(str(r[h])) for r in formatted)) for h in headers}
+    line = " ".join(h.ljust(widths[h]) for h in headers)
+    body = [" ".join(str(r[h]).rjust(widths[h]) for h in headers) for r in formatted]
+    return "\n".join([line, *body])

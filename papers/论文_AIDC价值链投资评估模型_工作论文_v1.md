@@ -96,7 +96,7 @@ $$\max \frac{\text{Risk-Adjusted NPV}}{\text{Peak Sponsor Equity}} \quad \text{s
 | Power-only（power） | L1 | Firm/Deliverable MW | tolling容量费$/kW-月 | Greenlight–Meta[8] |
 | Powered Shell（shell） | L2 | 已通电壳体 | $/kW-月 | — |
 | AI-ready Critical IT（critical_it） | L3 | Critical IT Capacity | $/kW-月 | TeraWulf–Anthropic[8] |
-| GPU托管（gpu_hosting） | L3.5 | 机架+电力+冷却+运维 | $/kW-月（含电费） | CentHill实盘[14] |
+| GPU托管（gpu_hosting） | L3.5 | 机架+电力+冷却+运维 | $/kW-月（含电费） | 匿名棕地项目实盘[14] |
 | 算力出租（compute） | L4 | GPU小时 | $/GPU-hr | 市场价格指数[6][12] |
 | AI工厂（ai_factory） | L5 | Token/推理 | $/M token | SemiAnalysis Tokenomics[6] |
 
@@ -293,7 +293,7 @@ SemiAnalysis Tokenomics模型显示，OpenAI/Anthropic可在GB300集群上产生
 
 [13]  WNT技术研究组. *AI基础设施融资中的循环支持模式：结构、历史镜鉴与风险展望*（v3.1）. 内部研究, 2026.
 
-[14] WNT技术研究组. *万卡集群，我们该如何选卡？——九种GPU方案在北美AIDC中的工程设计与投资经济性全景分析*；及 *20MW矿场改造AIDC方案设计v4.0*（CentHill Sherbrooke实盘口径）. 内部研究, 2026.
+[14] WNT技术研究组. *万卡集群，我们该如何选卡？——九种GPU方案在北美AIDC中的工程设计与投资经济性全景分析*；及 *20MW矿场改造AIDC方案设计v4.0*（匿名棕地项目实盘口径）. 内部研究, 2026.
 
 [15] WNT技术研究组. *GPU价格租金三源核实报告*（web权威源+Reddit+X平台87条结构化证据，附置信度评分）. 2026-08-15.
 
