@@ -1,0 +1,5 @@
+label,ce05,loss_rate,pd
+L3_generic_tenant,248.3,0.0225,0.02
+L3_IG_tenant,401.6,0.01,0.008
+C_generic,1638.7,0.0037,0.04
+C_IG,1974.4,0.0037,0.008

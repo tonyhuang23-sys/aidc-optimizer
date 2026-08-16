@@ -1,0 +1,6 @@
+pursuit_cost_musd,pC_star,pS_star,CE_C,CE_S,CE_L3,formula
+5,0.0037,0.0028,1638.7,2067.3,298.9,p* = Pursuit / (CE_contract - CE_L3)  [fallback = stay L3]
+10,0.0075,0.0057,1638.7,2067.3,298.9,p* = Pursuit / (CE_contract - CE_L3)  [fallback = stay L3]
+20,0.0149,0.0113,1638.7,2067.3,298.9,p* = Pursuit / (CE_contract - CE_L3)  [fallback = stay L3]
+50,0.0373,0.0283,1638.7,2067.3,298.9,p* = Pursuit / (CE_contract - CE_L3)  [fallback = stay L3]
+100,0.0746,0.0565,1638.7,2067.3,298.9,p* = Pursuit / (CE_contract - CE_L3)  [fallback = stay L3]

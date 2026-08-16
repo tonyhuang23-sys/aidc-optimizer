@@ -1,0 +1,6 @@
+case,ce,peak,econ_cap,delta_ce,delta_econ,delta_peak,IRASR_econ_PRIMARY,IRASR_peak_secondary
+Full-stack mix-ref $7.80,-1028.9,2362.1,2840.8,-1327.8,2398.8,2045.6,-0.554,-0.649
+GPU-only accounting $7.80,-438.9,1849.6,2258.8,-737.8,1816.8,1533.1,-0.406,-0.481
+GPU-only economic (pay L3 rent) $7.80,-949.4,1861.0,2270.5,-1248.3,1828.6,1544.5,-0.683,-0.808
+Contracted illustrative bulk $7.02,1638.7,1404.1,2314.1,1339.8,1872.2,1087.6,0.716,1.232
+Strategic illustrative bulk $7.02,2067.3,499.9,1817.9,1768.4,1375.9,183.4,1.285,9.642
