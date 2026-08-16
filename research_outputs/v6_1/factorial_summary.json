@@ -1,0 +1,120 @@
+{
+  "parameter_version": "v6.1-factorial",
+  "commit": "e5fc8d7",
+  "seed": 42,
+  "n_ce_per_cell": 800,
+  "decay_convention": "(1+g)**(k/12) annual-to-month",
+  "note": "Economic scenario package, not single-variable causal attribution",
+  "effects": [
+    {
+      "metric": "npv_musd",
+      "vintage_New_minus_Used": -385.7,
+      "contract_C_minus_M": 1657.5,
+      "asset_BF_minus_GF": 227.6,
+      "int_Vintage_x_Contract": 805.9,
+      "int_Vintage_x_Asset": -0.0,
+      "int_Contract_x_Asset": -0.0
+    },
+    {
+      "metric": "ce05",
+      "vintage_New_minus_Used": -737.7,
+      "contract_C_minus_M": 1302.8,
+      "asset_BF_minus_GF": 227.6,
+      "int_Vintage_x_Contract": 669.7,
+      "int_Vintage_x_Asset": 0.1,
+      "int_Contract_x_Asset": -0.2
+    },
+    {
+      "metric": "peak_equity_musd",
+      "vintage_New_minus_Used": 23.3,
+      "contract_C_minus_M": 0.0,
+      "asset_BF_minus_GF": -197.1,
+      "int_Vintage_x_Contract": 0.0,
+      "int_Vintage_x_Asset": 0.0,
+      "int_Contract_x_Asset": 0.0
+    },
+    {
+      "metric": "e_npv",
+      "vintage_New_minus_Used": -386.4,
+      "contract_C_minus_M": 1649.3,
+      "asset_BF_minus_GF": 227.6,
+      "int_Vintage_x_Contract": 802.0,
+      "int_Vintage_x_Asset": -0.0,
+      "int_Contract_x_Asset": -0.0
+    }
+  ],
+  "cells": [
+    {
+      "cell": "Greenfield x Merchant x New",
+      "npv_musd": -963.76,
+      "project_irr": 0.03177,
+      "peak_equity_musd": 755.29,
+      "ce05": -1659.6,
+      "e_npv": -967.1,
+      "loss_rate": 0.8825
+    },
+    {
+      "cell": "Greenfield x Merchant x Used",
+      "npv_musd": -175.11,
+      "project_irr": 0.11648,
+      "peak_equity_musd": 731.98,
+      "ce05": -586.9,
+      "e_npv": -179.7,
+      "loss_rate": 0.6825
+    },
+    {
+      "cell": "Greenfield x Contracted x New",
+      "npv_musd": 1096.66,
+      "project_irr": 0.27425,
+      "peak_equity_musd": 755.29,
+      "ce05": -21.7,
+      "e_npv": 1083.2,
+      "loss_rate": 0.2162
+    },
+    {
+      "cell": "Greenfield x Contracted x Used",
+      "npv_musd": 1079.4,
+      "project_irr": 0.34031,
+      "peak_equity_musd": 731.98,
+      "ce05": 381.1,
+      "e_npv": 1068.6,
+      "loss_rate": 0.0813
+    },
+    {
+      "cell": "Brownfield x Merchant x New",
+      "npv_musd": -736.21,
+      "project_irr": 0.04906,
+      "peak_equity_musd": 558.22,
+      "ce05": -1431.7,
+      "e_npv": -739.5,
+      "loss_rate": 0.84
+    },
+    {
+      "cell": "Brownfield x Merchant x Used",
+      "npv_musd": 52.45,
+      "project_irr": 0.16206,
+      "peak_equity_musd": 534.91,
+      "ce05": -359.3,
+      "e_npv": 47.9,
+      "loss_rate": 0.5188
+    },
+    {
+      "cell": "Brownfield x Contracted x New",
+      "npv_musd": 1324.22,
+      "project_irr": 0.3179,
+      "peak_equity_musd": 558.22,
+      "ce05": 205.8,
+      "e_npv": 1310.8,
+      "loss_rate": 0.1575
+    },
+    {
+      "cell": "Brownfield x Contracted x Used",
+      "npv_musd": 1306.95,
+      "project_irr": 0.42632,
+      "peak_equity_musd": 534.91,
+      "ce05": 608.7,
+      "e_npv": 1296.2,
+      "loss_rate": 0.0375
+    }
+  ]
+}

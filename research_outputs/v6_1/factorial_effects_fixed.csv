@@ -1,0 +1,5 @@
+metric,vintage_New_minus_Used,contract_C_minus_M,asset_BF_minus_GF,int_Vintage_x_Contract,int_Vintage_x_Asset,int_Contract_x_Asset
+npv_musd,-385.7,1657.5,227.6,805.9,-0.0,-0.0
+ce05,-737.7,1302.8,227.6,669.7,0.1,-0.2
+peak_equity_musd,23.3,0.0,-197.1,0.0,0.0,0.0
+e_npv,-386.4,1649.3,227.6,802.0,-0.0,-0.0

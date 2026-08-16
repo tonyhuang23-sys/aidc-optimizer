@@ -1,0 +1,5 @@
+label,n,n_target,e_npv,p5,es5,ce05,loss_count,loss_rate,wilson_lo,wilson_hi,p50,E_lo,E_hi,ES_lo,ES_hi,CE_lo,CE_hi,parameter_version,commit,seed,n_headline,decay_convention,ci_name
+L3_headline,10000,10000,671.5,401.0,-47.6,312.0,187,0.0187,0.0162,0.0215,687.6,666.4,676.4,-107.0,11.9,280.2,343.3,v6.1-2026-08-15,e5fc8d7,42,10000,(1+g)**(k/12),"Simulation Bootstrap Interval, conditional on model assumptions"
+L3_IG_pd0.008,10000,10000,688.4,423.6,180.0,434.2,88,0.0088,0.0071,0.0108,691.9,684.1,692.4,137.2,220.3,410.9,456.0,v6.1-2026-08-15,e5fc8d7,42,10000,(1+g)**(k/12),"Simulation Bootstrap Interval, conditional on model assumptions"
+C_bulk_7.02,10000,10000,2534.1,1298.5,806.0,1670.0,42,0.0042,0.0031,0.0057,2847.5,2521.5,2546.3,737.9,870.0,1631.9,1705.6,v6.1-2026-08-15,e5fc8d7,42,10000,(1+g)**(k/12),"Simulation Bootstrap Interval, conditional on model assumptions"
+C_IG_pd0.008,10000,10000,2620.3,1428.4,1223.7,1922.0,6,0.0006,0.0003,0.0013,2857.1,2610.1,2630.5,1188.6,1256.8,1901.3,1941.0,v6.1-2026-08-15,e5fc8d7,42,10000,(1+g)**(k/12),"Simulation Bootstrap Interval, conditional on model assumptions"

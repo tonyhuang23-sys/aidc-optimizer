@@ -1,0 +1,9 @@
+cell,asset,contract,vintage,rate_per_kw_hr,capex_musd,sponsor_equity_musd,peak_equity_musd,project_irr,equity_irr,npv_musd,min_dscr,moic,e_npv,es5,ce05,loss_rate,n_ce
+Greenfield x Merchant x New,Greenfield,Merchant,New,3.0,5829.0,5474.51,755.29,0.03177,0.6962,-963.76,5.2209,7.559,-967.1,-2352.0,-1659.6,0.8825,800
+Greenfield x Merchant x Used,Greenfield,Merchant,Used,1.9,2869.0,2491.2,731.98,0.11648,0.40566,-175.11,2.9982,4.692,-179.7,-994.2,-586.9,0.6825,800
+Greenfield x Contracted x New,Greenfield,Contracted,New,3.2,5829.0,5474.51,755.29,0.27425,1.17461,1096.66,9.3149,13.18,1083.2,-1126.7,-21.7,0.2162,800
+Greenfield x Contracted x Used,Greenfield,Contracted,Used,2.0,2869.0,2491.2,731.98,0.34031,0.72775,1079.4,5.7397,8.216,1068.6,-306.4,381.1,0.0813,800
+Brownfield x Merchant x New,Brownfield,Merchant,New,3.0,5529.0,5281.92,558.22,0.04906,0.97098,-736.21,7.2729,10.341,-739.5,-2123.8,-1431.7,0.84,800
+Brownfield x Merchant x Used,Brownfield,Merchant,Used,1.9,2569.0,2298.61,534.91,0.16206,0.58912,52.45,4.2107,6.525,47.9,-766.4,-359.3,0.5188,800
+Brownfield x Contracted x New,Brownfield,Contracted,New,3.2,5529.0,5281.92,558.22,0.3179,1.5754,1324.22,12.767,17.95,1310.8,-899.2,205.8,0.1575,800
+Brownfield x Contracted x Used,Brownfield,Contracted,Used,2.0,2569.0,2298.61,534.91,0.42632,1.01015,1306.95,7.8414,11.358,1296.2,-78.8,608.7,0.0375,800

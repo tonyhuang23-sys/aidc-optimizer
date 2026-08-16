@@ -1,0 +1,5 @@
+cash_musd,delay_months,delay_option_musd,pursuit_total_musd,pC_star,pS_star,CE_C,CE_S,CE_L3,formula
+20,6,15,35,0.0258,0.0194,1670.0,2112.0,312.0,p* = (Cash+Delay+OptionLost) / (CE_contract - CE_L3)
+50,12,40,90,0.0663,0.05,1670.0,2112.0,312.0,p* = (Cash+Delay+OptionLost) / (CE_contract - CE_L3)
+100,18,80,180,0.1325,0.1,1670.0,2112.0,312.0,p* = (Cash+Delay+OptionLost) / (CE_contract - CE_L3)
+200,24,160,360,0.2651,0.2,1670.0,2112.0,312.0,p* = (Cash+Delay+OptionLost) / (CE_contract - CE_L3)

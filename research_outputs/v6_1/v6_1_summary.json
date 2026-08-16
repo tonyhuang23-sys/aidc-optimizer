@@ -1,0 +1,80 @@
+{
+  "parameter_version": "v6.1-2026-08-15",
+  "commit": "e5fc8d7",
+  "seed": 42,
+  "n_headline": 10000,
+  "decay_convention": "(1+g)**(k/12)",
+  "ci_name": "Simulation Bootstrap Interval, conditional on model assumptions",
+  "CE_L3": 312.0,
+  "CE_L3_SBI": [
+    280.2,
+    343.3
+  ],
+  "CE_M": -979.9,
+  "CE_M_SBI": [
+    -998.4,
+    -960.7
+  ],
+  "CE_GO_acc": -389.9,
+  "CE_GO_econ": -933.9,
+  "CE_C": 1670.0,
+  "CE_C_SBI": [
+    1631.9,
+    1705.6
+  ],
+  "CE_S": 2112.0,
+  "CE_S_SBI": [
+    2073.1,
+    2147.2
+  ],
+  "matched": {
+    "CE_L3_generic": 312.0,
+    "CE_L3_IG": 434.2,
+    "CE_C_generic": 1670.0,
+    "CE_C_IG": 1922.0,
+    "layer_effect_IG": 1487.8,
+    "credit_effect_C": 252.0,
+    "credit_effect_L3": 122.2,
+    "headline_L3_equals_generic": true,
+    "note": "same seed/shocks as Headline; only PD changes"
+  },
+  "C4": [
+    {
+      "label": "C4_cc150_r7.02",
+      "rate": 7.02,
+      "cc_mode": "cc150",
+      "det_npv": 770.9,
+      "ce05": 180.7,
+      "det_peak": 1426.6,
+      "customer_capital": 150.0
+    },
+    {
+      "label": "C4_cc150_r9.36",
+      "rate": 9.36,
+      "cc_mode": "cc150",
+      "det_npv": 1915.2,
+      "ce05": 1127.9,
+      "det_peak": 1373.3,
+      "customer_capital": 150.0
+    },
+    {
+      "label": "C4_tcv15_r7.02",
+      "rate": 7.02,
+      "cc_mode": "tcv15",
+      "det_npv": 770.9,
+      "ce05": 180.7,
+      "det_peak": 526.7,
+      "customer_capital": 1121.0
+    },
+    {
+      "label": "C4_tcv15_r9.36",
+      "rate": 9.36,
+      "cc_mode": "tcv15",
+      "det_npv": 1915.2,
+      "ce05": 1127.9,
+      "det_peak": 526.7,
+      "customer_capital": 1494.6
+    }
+  ],
+  "realized_rate_status": "NOT CALIBRATED \u2014 $7.02 remains illustrative (9.36x0.75)"
+}
