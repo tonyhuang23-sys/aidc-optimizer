@@ -1,0 +1,9 @@
+mode,npv,peak,ce,note
+L3 Critical IT,706.5,316.5,505.0,v3.3 MC CE retained
+L4-M $7.80 -22%/yr FIXED,78.3,2362.1,,freq-fixed; near BE
+L4-C Fixed list $9.36,4761.1,1350.8,,upper bound
+L4-C Fixed bulk $7.02,2884.9,1404.1,1692.6,recommended base band
+L4-C Step-6%/yr bulk $7.02,2196.9,1404.1,,mild step-down still > L3
+L4-S Fixed list $9.36 BS-fixed,5284.6,438.2,3703.1,upper bound + credit MC CE
+L4-S Fixed bulk $7.02 BS-fixed,3277.6,499.9,2097.6,recommended base + credit MC CE
+L4-S downside $5.62,2076.9,536.8,1137.0,vol 0.60 credit MC

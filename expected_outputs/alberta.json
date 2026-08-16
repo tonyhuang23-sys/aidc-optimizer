@@ -63,22 +63,22 @@
     "compute": {
       "capex_musd": 5829.0,
       "sponsor_equity_musd": 5474.51,
-      "peak_equity_musd": 1097.23,
-      "project_irr": -0.29727,
-      "equity_irr": 0.01769,
-      "npv_musd": -3350.72,
-      "min_dscr": -0.3902,
-      "moic": 1.086
+      "peak_equity_musd": 755.29,
+      "project_irr": 0.03177,
+      "equity_irr": 0.6962,
+      "npv_musd": -963.76,
+      "min_dscr": 5.2209,
+      "moic": 7.559
     },
     "ai_factory": {
       "capex_musd": 5533.0,
       "sponsor_equity_musd": 5275.05,
-      "peak_equity_musd": 895.46,
-      "project_irr": -0.35903,
-      "equity_irr": 0.1122,
-      "npv_musd": -2784.06,
-      "min_dscr": -0.5528,
-      "moic": 1.45
+      "peak_equity_musd": 850.12,
+      "project_irr": 0.35498,
+      "equity_irr": 1.54188,
+      "npv_musd": 927.46,
+      "min_dscr": 11.836,
+      "moic": 10.695
     }
   },
   "power_coherence": {
@@ -117,93 +117,93 @@
     "Greenfield x Merchant x New": {
       "capex_musd": 5829.0,
       "sponsor_equity_musd": 5474.51,
-      "peak_equity_musd": 1097.23,
-      "project_irr": -0.29727,
-      "equity_irr": 0.01769,
-      "npv_musd": -3350.72,
-      "min_dscr": -0.3902,
-      "moic": 1.086
+      "peak_equity_musd": 755.29,
+      "project_irr": 0.03177,
+      "equity_irr": 0.6962,
+      "npv_musd": -963.76,
+      "min_dscr": 5.2209,
+      "moic": 7.559
     },
     "Greenfield x Merchant x Used": {
       "capex_musd": 2869.0,
       "sponsor_equity_musd": 2491.2,
-      "peak_equity_musd": 1157.8,
-      "project_irr": -0.20006,
-      "equity_irr": -0.0521,
-      "npv_musd": -1674.26,
-      "min_dscr": -0.3647,
-      "moic": 0.77
+      "peak_equity_musd": 731.98,
+      "project_irr": 0.11648,
+      "equity_irr": 0.40566,
+      "npv_musd": -175.11,
+      "min_dscr": 2.9982,
+      "moic": 4.692
     },
     "Greenfield x Contracted x New": {
       "capex_musd": 5829.0,
       "sponsor_equity_musd": 5474.51,
       "peak_equity_musd": 755.29,
-      "project_irr": -0.16605,
-      "equity_irr": 0.37918,
-      "npv_musd": -2214.3,
-      "min_dscr": -0.1087,
-      "moic": 3.653
+      "project_irr": 0.27425,
+      "equity_irr": 1.17461,
+      "npv_musd": 1096.66,
+      "min_dscr": 9.3149,
+      "moic": 13.18
     },
     "Greenfield x Contracted x Used": {
       "capex_musd": 2869.0,
       "sponsor_equity_musd": 2491.2,
       "peak_equity_musd": 731.98,
-      "project_irr": -0.06821,
-      "equity_irr": 0.16264,
-      "npv_musd": -986.95,
-      "min_dscr": -0.2722,
-      "moic": 2.078
+      "project_irr": 0.34031,
+      "equity_irr": 0.72775,
+      "npv_musd": 1079.4,
+      "min_dscr": 5.7397,
+      "moic": 8.216
     },
     "Brownfield x Merchant x New": {
       "capex_musd": 5529.0,
       "sponsor_equity_musd": 5281.92,
-      "peak_equity_musd": 788.51,
-      "project_irr": -0.31288,
-      "equity_irr": 0.07322,
-      "npv_musd": -3111.36,
-      "min_dscr": -0.5796,
-      "moic": 1.373
+      "peak_equity_musd": 558.22,
+      "project_irr": 0.04906,
+      "equity_irr": 0.97098,
+      "npv_musd": -736.21,
+      "min_dscr": 7.2729,
+      "moic": 10.341
     },
     "Brownfield x Merchant x Used": {
       "capex_musd": 2569.0,
       "sponsor_equity_musd": 2298.61,
-      "peak_equity_musd": 844.21,
-      "project_irr": -0.21104,
-      "equity_irr": -0.01284,
-      "npv_musd": -1440.67,
-      "min_dscr": -0.5209,
-      "moic": 0.943
+      "peak_equity_musd": 534.91,
+      "project_irr": 0.16206,
+      "equity_irr": 0.58912,
+      "npv_musd": 52.45,
+      "min_dscr": 4.2107,
+      "moic": 6.525
     },
     "Brownfield x Contracted x New": {
       "capex_musd": 5529.0,
       "sponsor_equity_musd": 5281.92,
       "peak_equity_musd": 558.22,
-      "project_irr": -0.16954,
-      "equity_irr": 0.59775,
-      "npv_musd": -1983.83,
-      "min_dscr": -0.1521,
-      "moic": 5.09
+      "project_irr": 0.3179,
+      "equity_irr": 1.5754,
+      "npv_musd": 1324.22,
+      "min_dscr": 12.767,
+      "moic": 17.95
     },
     "Brownfield x Contracted x Used": {
       "capex_musd": 2569.0,
       "sponsor_equity_musd": 2298.61,
       "peak_equity_musd": 534.91,
-      "project_irr": -0.0541,
-      "equity_irr": 0.28144,
-      "npv_musd": -756.6,
-      "min_dscr": -0.3927,
-      "moic": 2.907
+      "project_irr": 0.42632,
+      "equity_irr": 1.01015,
+      "npv_musd": 1306.95,
+      "min_dscr": 7.8414,
+      "moic": 11.358
     }
   },
   "shortage": {
     "capex_musd": 5829.0,
     "sponsor_equity_musd": 5474.51,
     "peak_equity_musd": 755.29,
-    "project_irr": -0.02506,
-    "equity_irr": 0.58648,
-    "npv_musd": -1412.24,
-    "min_dscr": 1.4764,
-    "moic": 6.377
+    "project_irr": 0.28052,
+    "equity_irr": 1.13852,
+    "npv_musd": 1223.52,
+    "min_dscr": 8.6314,
+    "moic": 13.814
   },
   "baseline_risk": {
     "dev": {
@@ -252,25 +252,25 @@
     },
     "ai_factory": {
       "n": 1500,
-      "e_npv_musd": -2776.7,
-      "es5_musd": -3781.8,
-      "ce0_musd": -2776.7,
-      "ce05_musd": -3279.2,
-      "ce1_musd": -3781.8,
-      "loss_rate": 1.0,
-      "wilson_lo": 0.9974,
-      "wilson_hi": 1.0
+      "e_npv_musd": 912.8,
+      "es5_musd": -1583.6,
+      "ce0_musd": 912.8,
+      "ce05_musd": -335.4,
+      "ce1_musd": -1583.6,
+      "loss_rate": 0.31,
+      "wilson_lo": 0.2871,
+      "wilson_hi": 0.3339
     }
   },
   "l5a_shortage": {
     "capex_musd": 5533.0,
     "sponsor_equity_musd": 5275.05,
     "peak_equity_musd": 850.12,
-    "project_irr": -0.0683,
-    "equity_irr": 0.8736,
-    "npv_musd": -1222.1,
-    "min_dscr": 0.6175,
-    "moic": 5.188
+    "project_irr": 0.72519,
+    "equity_irr": null,
+    "npv_musd": 3264.98,
+    "min_dscr": 17.9548,
+    "moic": 16.597
   },
   "risk": {
     "L3_criticalIT": {
@@ -286,34 +286,34 @@
     },
     "L4_shortage": {
       "n": 800,
-      "e_npv_musd": -1414.3,
-      "es5_musd": -2633.0,
-      "ce0_musd": -1414.3,
-      "ce05_musd": -2023.6,
-      "ce1_musd": -2633.0,
-      "loss_rate": 0.9663,
-      "wilson_lo": 0.9513,
-      "wilson_hi": 0.9767
+      "e_npv_musd": 1210.2,
+      "es5_musd": -1027.2,
+      "ce0_musd": 1210.2,
+      "ce05_musd": 91.5,
+      "ce1_musd": -1027.2,
+      "loss_rate": 0.1875,
+      "wilson_lo": 0.162,
+      "wilson_hi": 0.216
     },
     "L4_baseline": {
       "n": 800,
-      "e_npv_musd": -3348.8,
-      "es5_musd": -4303.1,
-      "ce0_musd": -3348.8,
-      "ce05_musd": -3826.0,
-      "ce1_musd": -4303.1,
-      "loss_rate": 1.0,
-      "wilson_lo": 0.9952,
-      "wilson_hi": 1.0
+      "e_npv_musd": -967.1,
+      "es5_musd": -2352.0,
+      "ce0_musd": -967.1,
+      "ce05_musd": -1659.6,
+      "ce1_musd": -2352.0,
+      "loss_rate": 0.8825,
+      "wilson_lo": 0.8583,
+      "wilson_hi": 0.903
     }
   },
   "irasr": {
     "ce_l3_musd": 504.9,
-    "ce_l4_shortage_musd": -2023.6,
+    "ce_l4_shortage_musd": 91.5,
     "peak_l3_musd": 316.511,
     "peak_l4_shortage_musd": 755.294,
-    "delta_ce_musd": -2528.5,
+    "delta_ce_musd": -413.4,
     "delta_peak_musd": 438.783,
-    "value": -5.76
+    "value": -0.94
   }
 }

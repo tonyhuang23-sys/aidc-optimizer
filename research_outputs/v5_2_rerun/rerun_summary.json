@@ -1,0 +1,51 @@
+{
+  "frequency_fix": "(1+annual_decay)**(month/12)",
+  "c1_c2_delta_npv": 917.4,
+  "c2_npv": 3843.7,
+  "merchant_780_npv": 78.3,
+  "merchant_be_npv0": 7.64,
+  "l3_npv": 706.5,
+  "credit_mc": [
+    {
+      "label": "S_list_9.36",
+      "rate_gpuh": 9.36,
+      "e_npv": 4846.4,
+      "ce05": 3703.1,
+      "loss_rate": 0.0,
+      "wilson_lo": 0,
+      "wilson_hi": 0.0019,
+      "n": 2000
+    },
+    {
+      "label": "S_bulk_7.02",
+      "rate_gpuh": 7.02,
+      "e_npv": 2949.6,
+      "ce05": 2097.6,
+      "loss_rate": 0.002,
+      "wilson_lo": 0.0008,
+      "wilson_hi": 0.0051,
+      "n": 2000
+    },
+    {
+      "label": "S_downside_5.62",
+      "rate_gpuh": 5.62,
+      "e_npv": 1814.8,
+      "ce05": 1137.0,
+      "loss_rate": 0.013,
+      "wilson_lo": 0.0089,
+      "wilson_hi": 0.019,
+      "n": 2000
+    },
+    {
+      "label": "C_bulk_7.02",
+      "rate_gpuh": 7.02,
+      "e_npv": 2528.0,
+      "ce05": 1692.6,
+      "loss_rate": 0.0035,
+      "wilson_lo": 0.0017,
+      "wilson_hi": 0.0072,
+      "n": 2000
+    }
+  ],
+  "note": "All GPU paths use annual-to-monthly conversion; backstop residual-only; B200 CAPEX unified $60k/GPU"
+}
