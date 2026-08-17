@@ -31,7 +31,8 @@ pip install -r requirements.txt      # numpy==2.2.6, PyYAML==6.0.3, matplotlib==
 python reproduce.py check             # v3.3 golden regression (exit 0 = pass)
 python tests/test_validation.py       # Greenlight / TeraWulf calibration tests
 python research_v6_factorial_fixed.py # Table 5 (frequency-fixed 2x2x2)
-python research_v6_1.py --stage l3    # then m / go / c / s / matched / c4a-d / post
+python research_v6_1.py --stage l3    # live 1.2.1 writes to research_outputs/v6_1_1/
+# then m / go / c / s / matched / c4a-d / post. Does not overwrite frozen v6_1/.
 ```
 
 To evaluate a custom project:
@@ -51,7 +52,8 @@ papers/reviews/        Review notes that drove revisions
 reproduce.py           v3.3 reproduction runner + golden check
 research_v6_1.py       Headline All-risk / IRASR / C4 / access runner (staged + resume)
 research_v6_factorial_fixed.py
-research_outputs/v6_1/ Headline CSVs, JSON, MC samples
+research_outputs/v6_1/ Frozen Headline pack (e5fc8d7 + legacy 0.375; do not overwrite)
+research_outputs/v6_1_1/ Live 1.2.1 residual-unsold + 0.75 writes (not a published Headline)
 expected_outputs/      Committed golden JSON (alberta full, texas baseline)
 docs/REPRODUCIBILITY.md
 ```
@@ -88,8 +90,9 @@ a forecast for any named project.
   pack. The S-path in that pack used a **legacy 0.375 backstop** to offset a
   then double-counting (`1-phys`) engine. Engine **1.2.1** bills residual
   unsold only and the live `research_v6_1.py` default is **0.75**;
-  **+$2.11 B is not a 1.2.1 residual-unsold + 0.75 rerun.** L4 default
-  CAPEX is B200 all-in ~$60k/GPU.
+  **+$2.11 B is not a 1.2.1 residual-unsold + 0.75 rerun.** Live reruns write
+  to `research_outputs/v6_1_1/` and must not replace the frozen pack. L4
+  default CAPEX is B200 all-in ~$60k/GPU.
 - After the annual-decay frequency fix, the 2×2×2 ranking is
   **contract ≫ vintage > asset stack**. Four of eight cells are NPV-positive.
 - Power-only under market-coherent **P1** is an infrastructure-style Equity IRR

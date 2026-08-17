@@ -13,7 +13,8 @@ Does not expand the framework. Does not invent a realized bulk rate.
 Live S-path backstop is 0.75 on residual-unsold only (engine 1.2.1).
 The frozen Headline pack in research_outputs/v6_1/ was produced at
 legacy 0.375 (v5.1 compensation for the old 1-phys double count).
-Do not treat that pack as a 1.2.1 + 0.75 result.
+
+Live writes go to research_outputs/v6_1_1/. Do not overwrite the frozen pack.
 
     python research_v6_1.py
 """
@@ -38,8 +39,11 @@ from research_v5_5 import (
 )
 from research_v5 import CONTRACTS, run_contract
 
-OUT = Path("research_outputs/v6_1")
+FROZEN_OUT = Path("research_outputs/v6_1")
+OUT = Path("research_outputs/v6_1_1")
 OUT.mkdir(parents=True, exist_ok=True)
+if OUT.resolve() == FROZEN_OUT.resolve():
+    raise SystemExit("refusing to write live 1.2.1 results over the frozen Headline pack")
 CFG = load_config("configs/alberta.yaml")
 B200 = 60000 * GPU_PER_IT_KW
 SEED = 42
@@ -430,6 +434,8 @@ def main():
         f"frozen Headline pack used {FROZEN_HEADLINE_S_BACKSTOP}."
     )
 
+    print(f"live OUT={OUT}  frozen={FROZEN_OUT}")
+
     # --- Headline samples (one shock stream per family) ---
     sh_l3 = shocks_L3(N_HEAD, SEED)
     l3_npvs = npvs_L3(sh_l3, pd=0.02)
@@ -589,6 +595,7 @@ def run_stage(stage: str):
         f"S backstop={S_BACKSTOP} residual-unsold; "
         f"frozen Headline pack used {FROZEN_HEADLINE_S_BACKSTOP}."
     )
+    print(f"live OUT={OUT}  frozen={FROZEN_OUT}")
     complete = True
     if stage == "l3":
         sh_path = OUT / "shocks_L3.npz"
