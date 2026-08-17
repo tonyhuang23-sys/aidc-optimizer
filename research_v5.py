@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """
+HISTORICAL SCRIPT — period artifact, not engine 1.2.1.
+32000 / 21300 in the certainty bridge are pre-unification B200 capex.
+Live L4 default is 60000 * GPU_PER_IT_KW (~31980).
+
 AIDC v5 research engine — Investment Vintage × Contract × Strategic Finance.
 
 Extends research_l4 with:

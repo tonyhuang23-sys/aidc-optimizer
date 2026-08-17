@@ -127,7 +127,10 @@ the CSVs below from those samples.
 | Table 10-1 access p* with delay | `research_outputs/v6_1/access_pstar_delay.csv` |
 | Headline JSON (commit / seed) | `research_outputs/v6_1/v6_1_summary.json` |
 
-Headline seed = 42, N = 10,000, parameter version `v6.1-2026-08-15`.
+Headline seed = 42, N = 10,000, parameter version `v6.1-2026-08-15`,
+commit `e5fc8d7`. That pack is **frozen**. The S-path used a legacy 0.375
+backstop to offset the then double-counting (`1-phys`) engine. Do not treat
+`research_outputs/v6_1/` as a 1.2.1 residual-unsold + 0.75 rerun.
 GPU annual decay in both engines is `(1+g)**(k/12)`.
 `$7.02 / GPU-h` remains an author illustrative bulk (`9.36 × 0.75`),
 not a transaction-anchored realized rate.

@@ -16,6 +16,7 @@
 3. **区间名称。** 文中 CI 一律为 **Simulation Bootstrap Interval (SBI), conditional on model assumptions**——只度量既定模型假设下的模拟抽样误差，**不是**真实项目价值的 95% 置信区间。它不覆盖 $7.02 成交价、PD/LGD、残值相关、EconCap 或 CAPEX 校准的不确定性。  
 4. **$7.02/GPU-h $=9.36\times 0.75$** 是作者 Illustrative Bulk 情景，**不是成交数据**。交易锚定 realized rate **仍未校准**。  
 5. **七模式表的 L4 行**已换成频率修复后同一 legacy YAML 路径（NPV **−$964M**，Peak **$755M**）。旧 −$3,351M 只在附录 Version Audit。Headline Forward Merchant 仍见 §7（$7.80，NPV +$78M，Peak **$2,362M**）。
+6. **Headline S 与 1.2.1 引擎禁止混用。** 对外 +$2.11B / IRASR +2.37 冻结于 commit `e5fc8d7`、parameter version `v6.1-2026-08-15`，S 路径当时用 **legacy 0.375** 补偿旧引擎的 `1-phys` 双重计费。代码 1.2.1 已改为 residual-unsold only，活路径默认 **0.75**；`research_outputs/v6_1/` **不是** 1.2.1 + 0.75 的重跑结果。本文 Headline 数字仍引用该冻结包，不在 1.2.1 上重估。
 
 ---
 
@@ -66,7 +67,7 @@ $$\mathrm{IRASR}_{\mathrm{econ}}=\frac{\Delta\mathrm{CE\text{-}NPV}}{\Delta\math
 
 AIDC investment is often reduced to a single “data-center IRR.” This paper evaluates seven business modes on a unified 100 MW platform with a two-tier asset–financing engine and two decision metrics: a **tail-weighted certainty-equivalent proxy** and incremental risk-adjusted sponsor return on **screening-level economic capital** (Low / Base / High). Asset value is $V_i=f(\mathrm{Role},\mathrm{Vintage},\mathrm{Stack},\mathrm{Contract},\mathrm{Capital},\mathrm{Market})$; sponsor choice overlays access probability, pursuit cost (cash + delay + option) and fallback.
 
-After correcting an annual-to-monthly decay bug, unifying B200 all-in CAPEX, restricting vendor backstop to residual unsold capacity, and scoring all modes on one All-risk taxonomy ($N=10{,}000$; seed 42; **Simulation Bootstrap Intervals conditional on model assumptions**): the market-coherent power layer earns ~14.1% equity IRR; L3 Critical IT is the structural default (CE ~+$312\mathrm{M}$); full-stack Merchant at a **non-spot mix-reference** $7.80/\mathrm{GPU\text{-}h}$ is near NPV breakeven but deeply CE-negative; GPU-only improves the stack boundary but, once L3 market rent is charged, still fails L3 opportunity-cost parity below ~$11/\mathrm{GPU\text{-}h}$; illustrative bulk contracted/strategic compute ($7.02=0.75\times 9.36$, **author scenario**) remains CE-superior to L3, and a matched-counterparty test on the **same shock stream** attributes most of the gap to **contract structure**. A frequency-corrected $2\times 2\times 2$ ranks **contract $\gg$ vintage $>$ stack**. IRASR on screening economic capital is the headline allocation rule. GPU deployment should be demand-led.
+After correcting an annual-to-monthly decay bug and unifying B200 all-in CAPEX, all modes are scored on one All-risk taxonomy ($N=10{,}000$; seed 42; **Simulation Bootstrap Intervals conditional on model assumptions**). The committed Headline pack still uses the **legacy 0.375 S-path compensation** on the pre-1.2.1 engine; residual-unsold-only billing is the 1.2.1 live default and has **not** been re-run at $N=10{,}000$. Under that frozen pack, the market-coherent power layer earns ~14.1% equity IRR; L3 Critical IT is the structural default (CE ~+$312\mathrm{M}$); full-stack Merchant at a **non-spot mix-reference** $7.80/\mathrm{GPU\text{-}h}$ is near NPV breakeven but deeply CE-negative; GPU-only improves the stack boundary but, once L3 market rent is charged, still fails L3 opportunity-cost parity below ~$11/\mathrm{GPU\text{-}h}$; illustrative bulk contracted/strategic compute ($7.02=0.75\times 9.36$, **author scenario**) remains CE-superior to L3, and a matched-counterparty test on the **same shock stream** attributes most of the gap to **contract structure**. A frequency-corrected $2\times 2\times 2$ ranks **contract $\gg$ vintage $>$ stack**. IRASR on screening economic capital is the headline allocation rule. GPU deployment should be demand-led.
 
 ---
 
@@ -684,7 +685,7 @@ $$\mathrm{Power\text{-}secured}\rightarrow\mathrm{AI\text{-}ready}\rightarrow\ma
 
 ### 11.7 局限性
 
-筛选级精度；直线折旧；单一美元；相关矩阵经验设定（$\rho(\mathrm{rent},\mathrm{residual})=0.6$，其余 0.25）；Historical 租金路径非完整回测；Counterparty PD 为情景而非评级校准；EconCap 为三档筛选原型、非 term-sheet；$7.02$ 为作者假设、realized rate 未校准；Financeability 压力网格未独立正式重跑；L5a 非严格 token 单位经济；交易级样本外验证未完成；WACC 与 CE 的重叠无法完全排除；Pursuit 时滞加项为情景。SBI **不**覆盖上述参数不确定性。
+筛选级精度；直线折旧；单一美元；相关矩阵经验设定（$\rho(\mathrm{rent},\mathrm{residual})=0.6$，其余 0.25）；Gaussian copula 会低估联合尾部（需求塌 + GPU 崩 + 电价飙），student-t / vine 为后续工作；Historical 租金路径非完整回测；Counterparty PD 为情景而非评级校准；EconCap 为三档筛选原型、非 term-sheet；$7.02$ 为作者假设、realized rate 未校准；Financeability 压力网格未独立正式重跑；L5a 非严格 token 单位经济；交易级样本外验证未完成；WACC 与 CE 的重叠无法完全排除；Pursuit 时滞加项为情景。模型默认 **powered / permitted land 为给定输入**，并网排队、电网升级、审批与 NVIDIA 分配等执行风险未定价。SBI **不**覆盖上述参数不确定性。Headline S 的 +$2.11B 冻结于 legacy 0.375 补偿，不是 1.2.1 residual-unsold + 0.75 的重跑。
 
 ---
 

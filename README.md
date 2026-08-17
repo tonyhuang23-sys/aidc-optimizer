@@ -18,8 +18,9 @@ and **IRASR_econ** (incremental CE per unit of screening Economic Capital).
 
 > Current working paper: **v6.1**
 > (*A Value-Chain Investment Evaluation Model for AI Infrastructure*).
-> Headline All-risk numbers are in `research_outputs/v6_1/`
-> (N = 10,000, seed = 42).
+> Headline All-risk numbers are the **frozen** pack in `research_outputs/v6_1/`
+> (N = 10,000, seed = 42, parameter version `v6.1-2026-08-15`, commit `e5fc8d7`).
+> That pack has **not** been re-run on the 1.2.1 residual-unsold + 0.75 S-path.
 > The v3.3 golden path remains `python reproduce.py check`.
 
 ## Quick start
@@ -83,9 +84,12 @@ a forecast for any named project.
   Illustrative bulk $7.02 Contracted CE ≈ **+$1.67 B** (IRASR_econ ≈ **+0.92**);
   Strategic ≈ **+$2.11 B** (IRASR_econ ≈ **+2.37**).
   **$7.02 = 9.36 × 0.75 is an author scenario, not a transacted rate.**
-  The S-path backstop is now residual-unsold only and L4 default CAPEX is
-  B200 all-in ~$60k/GPU; Headline N=10,000 numbers are the committed
-  research_outputs/v6_1 pack and have **not** been re-run in 1.2.1.
+  These Headline N=10,000 figures are the frozen `research_outputs/v6_1`
+  pack. The S-path in that pack used a **legacy 0.375 backstop** to offset a
+  then double-counting (`1-phys`) engine. Engine **1.2.1** bills residual
+  unsold only and the live `research_v6_1.py` default is **0.75**;
+  **+$2.11 B is not a 1.2.1 residual-unsold + 0.75 rerun.** L4 default
+  CAPEX is B200 all-in ~$60k/GPU.
 - After the annual-decay frequency fix, the 2×2×2 ranking is
   **contract ≫ vintage > asset stack**. Four of eight cells are NPV-positive.
 - Power-only under market-coherent **P1** is an infrastructure-style Equity IRR

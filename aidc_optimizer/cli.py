@@ -57,6 +57,11 @@ def main(argv=None):
     ap.add_argument("--tornado", action="store_true", help="输出龙卷风敏感性")
     ap.add_argument("--set", nargs="*", help="参数覆盖: path=value")
     ap.add_argument("--out", default=None, help="输出目录")
+    ap.add_argument(
+        "--has-financeable-contract",
+        action="store_true",
+        help="已有融资级算力合同时才允许建议延伸到 L4；默认否，筛选停在 L3。",
+    )
     args = ap.parse_args(argv)
 
     cfg = load_config(args.config)
@@ -90,7 +95,7 @@ def main(argv=None):
                   f"ΔNPV ${row['ΔNPV $M']:,.0f}M, ΔReturn={dr:.2f} [{row['边际决策']}]"
                   if dr == dr else
                   f"  {row['From']} → {row['To']}: ΔCAPEX ${row['ΔCAPEX $M']:,.0f}M, ΔNPV ${row['ΔNPV $M']:,.0f}M")
-        rec = recommend_layer(results)
+        rec = recommend_layer(results, has_financeable_contract=args.has_financeable_contract)
         print("筛选建议: %s — %s" % (rec["layer"], rec["reason"]))
         print()
 

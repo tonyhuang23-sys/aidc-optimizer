@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """
+HISTORICAL SCRIPT — period artifact, not engine 1.2.1.
+0.375 is the v5.1 compensation for the old 1-phys double-count engine.
+Live research_l4.py bills residual unsold only; live S default is 0.75.
+
 v5.5 — Transfer pricing, matched counterparty, CE bootstrap CI,
 IRASR_econ primary, GPU-only CE parity, access p* with L3 fallback.
 

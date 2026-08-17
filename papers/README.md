@@ -14,6 +14,9 @@ and the popular-science rewrite.
 | `reviews/` | Review notes that drove revisions |
 
 Headline numbers for v6.1 live in `../research_outputs/v6_1/`.
-Do not mix v5.0 Peak Equity (~$5.5 B) or v5.0 C4 NPV (−$821 M) with v6.1 Headline.
+That pack is frozen at parameter version `v6.1-2026-08-15` / commit `e5fc8d7`
+under the **legacy 0.375 S-path compensation**. Do not treat it as a 1.2.1
+residual-unsold + 0.75 result. Do not mix v5.0 Peak Equity (~$5.5 B) or
+v5.0 C4 NPV (−$821 M) with v6.1 Headline.
 
 Third-party PDFs and raw social-intel dumps are **not** in this folder.

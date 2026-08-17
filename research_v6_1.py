@@ -10,6 +10,11 @@ v6.1 — review must-dos on the frozen v6.0 structure.
 
 Does not expand the framework. Does not invent a realized bulk rate.
 
+Live S-path backstop is 0.75 on residual-unsold only (engine 1.2.1).
+The frozen Headline pack in research_outputs/v6_1/ was produced at
+legacy 0.375 (v5.1 compensation for the old 1-phys double count).
+Do not treat that pack as a 1.2.1 + 0.75 result.
+
     python research_v6_1.py
 """
 from __future__ import annotations
@@ -42,6 +47,10 @@ N_HEAD = 10_000
 N_GRID = 300
 PARAM_VERSION = "v6.1-2026-08-15"
 ILLUSTRATIVE_BULK = 7.02
+# Live S-path: NVIDIA-style 75% of residual unsold. Frozen Headline CSVs
+# in research_outputs/v6_1/ used 0.375 (legacy compensation). Do not mix.
+S_BACKSTOP = 0.75
+FROZEN_HEADLINE_S_BACKSTOP = 0.375
 PUBLIC_NONSPOT_MEDIAN = 7.80
 LIST_DEDICATED = 9.36
 
@@ -206,7 +215,7 @@ def npvs_S(shocks, rate):
         haircut = 0.0 if shocks["u_hair"][i] > 0.15 else float(shocks["hair1"][i])
         if shocks["u_reset"][i] < 0.10:
             haircut = max(haircut, float(shocks["hair2"][i]))
-        bs = 0.375 if shocks["u_bs"][i] > 0.08 else 0.0
+        bs = S_BACKSTOP if shocks["u_bs"][i] > 0.08 else 0.0
         lev, kd = (0.55, 0.095) if shocks["u_refi"][i] < 0.10 else (0.70, 0.059)
         cm = 60 if term_y is None else term_y * 12
         try:
@@ -416,6 +425,10 @@ def lambda_table(sample_map):
 def main():
     t0 = time.time()
     print(f"=== v6.1 Headline All-risk N={N_HEAD} seed={SEED} commit={COMMIT} ===")
+    print(
+        f"S backstop={S_BACKSTOP} residual-unsold; "
+        f"frozen Headline pack used {FROZEN_HEADLINE_S_BACKSTOP}."
+    )
 
     # --- Headline samples (one shock stream per family) ---
     sh_l3 = shocks_L3(N_HEAD, SEED)
@@ -483,7 +496,7 @@ def main():
     det_goa = run_l4(cfg_acc, L4Params("m", 7.8, -0.22, 0.75, 0.75, 0.35, 0.095, 48, 0, 0, B200, "m", 0))
     det_goe = run_l4(cfg_eon, L4Params("m", 7.8, -0.22, 0.75, 0.75, 0.35, 0.095, 48, 0, 0, B200, "m", 0))
     det_c = run_l4(CFG, L4Params("c", ILLUSTRATIVE_BULK, 0, 0.90, 0.95, 0.55, 0.07, 60, 150, 0, B200, "c", 60))
-    det_s = run_l4(CFG, L4Params("s", ILLUSTRATIVE_BULK, 0, 0.90, 0.95, 0.70, 0.059, 60, 500, 0.375, B200, "s", 60))
+    det_s = run_l4(CFG, L4Params("s", ILLUSTRATIVE_BULK, 0, 0.90, 0.95, 0.70, 0.059, 60, 500, S_BACKSTOP, B200, "s", 60))
     irasr_table(l3_rec["ce05"], peak_l3, [
         ("Full-stack mix-ref $7.80", "M", m_rec["ce05"], det_m),
         ("GPU-only accounting $7.80", "gpu", goa_rec["ce05"], det_goa),
@@ -572,6 +585,10 @@ def run_stage(stage: str):
     """Incremental runner so each bash call finishes inside the 45s tool window."""
     t0 = time.time()
     print(f"=== stage={stage} N={N_HEAD} seed={SEED} commit={COMMIT} ===")
+    print(
+        f"S backstop={S_BACKSTOP} residual-unsold; "
+        f"frozen Headline pack used {FROZEN_HEADLINE_S_BACKSTOP}."
+    )
     complete = True
     if stage == "l3":
         sh_path = OUT / "shocks_L3.npz"
@@ -750,7 +767,7 @@ def pack_post():
     det_goa = run_l4(cfg_acc, L4Params("m", 7.8, -0.22, 0.75, 0.75, 0.35, 0.095, 48, 0, 0, B200, "m", 0))
     det_goe = run_l4(cfg_eon, L4Params("m", 7.8, -0.22, 0.75, 0.75, 0.35, 0.095, 48, 0, 0, B200, "m", 0))
     det_c = run_l4(CFG, L4Params("c", ILLUSTRATIVE_BULK, 0, 0.90, 0.95, 0.55, 0.07, 60, 150, 0, B200, "c", 60))
-    det_s = run_l4(CFG, L4Params("s", ILLUSTRATIVE_BULK, 0, 0.90, 0.95, 0.70, 0.059, 60, 500, 0.375, B200, "s", 60))
+    det_s = run_l4(CFG, L4Params("s", ILLUSTRATIVE_BULK, 0, 0.90, 0.95, 0.70, 0.059, 60, 500, S_BACKSTOP, B200, "s", 60))
     irasr_table(l3["ce05"], peak_l3, [
         ("Full-stack mix-ref $7.80", "M", m["ce05"], det_m),
         ("GPU-only accounting $7.80", "gpu", goa["ce05"], det_goa),

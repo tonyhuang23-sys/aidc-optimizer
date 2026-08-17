@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """
+HISTORICAL SCRIPT — period artifact, not engine 1.2.1.
+0.375 is the v5.1 compensation for the old 1-phys double-count engine.
+Live research_l4.py bills residual unsold only; live S default is 0.75.
+
 v5.1 P0 audit suite — cashflow, contract rate, CAPEX, backstop, credit MC.
 Does NOT expand framework; audits whether v5.0 headline flips are robust.
 """
@@ -247,21 +251,17 @@ def p0_5_backstop_audit():
     physical = 0.90
     paid_unused = contracted - physical  # 0.05
     residual_unsold = total - contracted  # 0.05
-    # Current research_l4 backstop uses (1 - phys_util) = 0.10 — WRONG, includes paid-unused
-    current_backstop_base = 1 - physical  # 0.10
+    # v5.1-era research_l4 billed backstop on (1-phys)=0.10 (ToP unused + unsold).
+    # Engine 1.2.1 bills residual unsold only; do not read this block as current.
+    # 0.375 below is the historical compensation: 0.75 * 0.05/0.10.
+    then_engine_backstop_base = 1 - physical  # 0.10 on the v5.1 engine
     correct_backstop_base = residual_unsold  # 0.05
     print(f"  Total=1.0 Contracted={contracted} Physical={physical}")
     print(f"  Paid-but-unused (ToP, NO backstop)={paid_unused}")
     print(f"  Residual unsold (backstop OK)={residual_unsold}")
-    print(f"  CURRENT model backstop base={current_backstop_base}  CORRECT={correct_backstop_base}")
-    print(f"  DOUBLE-COUNT fraction={current_backstop_base - correct_backstop_base:.2f} of capacity")
-    # Re-run S with corrected backstop: only residual_unsold * rate * 0.75
-    # Implement by setting phys_util so that (1-u) = residual only when billable=1? 
-    # Better: custom run with backstop on residual only
-    # Approximate: backstop_rate_pct applied to residual_unsold/ (1-phys) of current
-    # current adds: unused*rate*0.75 where unused=1-phys=0.10
-    # correct should add: 0.05*rate*0.75 = half of current backstop revenue
-    # So effective backstop_rate_pct_market_corrected = 0.75 * (0.05/0.10) = 0.375
+    print(f"  v5.1 engine backstop base={then_engine_backstop_base}  CORRECT={correct_backstop_base}")
+    print(f"  DOUBLE-COUNT fraction={then_engine_backstop_base - correct_backstop_base:.2f} of capacity")
+    # Historical workaround only: 0.75 * residual_unsold / (1-phys) = 0.375
     s_wrong = make_params(9.36, 0.0, 0.95, 0.90, 0.70, 0.059, 60, 500, 0.75, B200_CAPEX_IT_KW, 60, "S_wrong")
     s_fix = make_params(9.36, 0.0, 0.95, 0.90, 0.70, 0.059, 60, 500, 0.375, B200_CAPEX_IT_KW, 60, "S_fix")
     s_none = make_params(9.36, 0.0, 0.95, 0.90, 0.70, 0.059, 60, 500, 0.0, B200_CAPEX_IT_KW, 60, "S_none")
@@ -284,7 +284,7 @@ def p0_5_backstop_audit():
 def p0_4_strategic_credit_mc(n=2000, seed=42):
     print(f"\n=== P0-4 Strategic credit+contract MC N={n} ===")
     rng = np.random.default_rng(seed)
-    # Base fixed ToP unified CAPEX, corrected backstop 0.375
+    # Historical: 0.375 compensation on the v5.1 double-count engine, not 1.2.1.
     base_rate, base_backstop = 9.36, 0.375
     npvs = []
     breaches = 0
