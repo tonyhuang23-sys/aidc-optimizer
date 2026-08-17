@@ -16,7 +16,7 @@
 3. **区间名称。** 文中 CI 一律为 **Simulation Bootstrap Interval (SBI), conditional on model assumptions**——只度量既定模型假设下的模拟抽样误差，**不是**真实项目价值的 95% 置信区间。它不覆盖 $7.02 成交价、PD/LGD、残值相关、EconCap 或 CAPEX 校准的不确定性。  
 4. **$7.02/GPU-h $=9.36\times 0.75$** 是作者 Illustrative Bulk 情景，**不是成交数据**。交易锚定 realized rate **仍未校准**。  
 5. **七模式表的 L4 行**已换成频率修复后同一 legacy YAML 路径（NPV **−$964M**，Peak **$755M**）。旧 −$3,351M 只在附录 Version Audit。Headline Forward Merchant 仍见 §7（$7.80，NPV +$78M，Peak **$2,362M**）。
-6. **Headline S 与 1.2.1 引擎禁止混用。** 对外 +$2.11B / IRASR +2.37 冻结于 commit `e5fc8d7`、parameter version `v6.1-2026-08-15`，S 路径当时用 **legacy 0.375** 补偿旧引擎的 `1-phys` 双重计费。代码 1.2.1 已改为 residual-unsold only，活路径默认 **0.75**；`research_outputs/v6_1/` **不是** 1.2.1 + 0.75 的重跑结果。活 runner 写入 `research_outputs/v6_1_1/`，不得覆盖冻结包。本文 Headline 数字仍引用该冻结包，不在 1.2.1 上重估。
+6. **Headline S 与 1.2.1 引擎禁止混用。** 对外 +$2.11B / IRASR +2.37 冻结于 commit `e5fc8d7`、parameter version `v6.1-2026-08-15`，S 路径当时用 **legacy 0.375** 补偿旧引擎的 `1-phys` 双重计费。代码 1.2.1 已改为 residual-unsold only，活路径默认 **0.75**；`research_outputs/v6_1/` **不是** 1.2.1 + 0.75 的重跑结果。活 runner 与活 factorial 写入 `research_outputs/v6_1_1/`，不得覆盖冻结包。本文 Headline 数字仍引用该冻结包，不在 1.2.1 上重估。
 
 ---
 
@@ -755,8 +755,8 @@ $$\boxed{\mathrm{Asset\ Value}\neq\mathrm{Hardware\ Value}}$$
 ```bash
 cd aidc-optimizer
 python reproduce.py check                 # 黄金回归（legacy YAML；L4 ≈ −$964M）
-python research_v6_factorial_fixed.py     # 表 5
-python research_v6_1.py --stage l3        # 其后 m / go / c / s / matched / c4a–d / post
+python research_v6_factorial_fixed.py     # 活表 5 写入 v6_1_1/，不覆盖冻结包
+python research_v6_1.py --stage l3        # 活 1.2.1 写入 v6_1_1/；其后 m / go / c / s / matched / c4a–d / post
 python research_v5_2_rerun.py             # 表 7-2 / V1（确定性，未改）
 ```
 

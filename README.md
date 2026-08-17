@@ -30,7 +30,7 @@ pip install -r requirements.txt      # numpy==2.2.6, PyYAML==6.0.3, matplotlib==
 
 python reproduce.py check             # v3.3 golden regression (exit 0 = pass)
 python tests/test_validation.py       # Greenlight / TeraWulf calibration tests
-python research_v6_factorial_fixed.py # Table 5 (frequency-fixed 2x2x2)
+python research_v6_factorial_fixed.py # live Table 5 writes to research_outputs/v6_1_1/
 python research_v6_1.py --stage l3    # live 1.2.1 writes to research_outputs/v6_1_1/
 # then m / go / c / s / matched / c4a-d / post. Does not overwrite frozen v6_1/.
 ```
@@ -53,7 +53,7 @@ reproduce.py           v3.3 reproduction runner + golden check
 research_v6_1.py       Headline All-risk / IRASR / C4 / access runner (staged + resume)
 research_v6_factorial_fixed.py
 research_outputs/v6_1/ Frozen Headline pack (e5fc8d7 + legacy 0.375; do not overwrite)
-research_outputs/v6_1_1/ Live 1.2.1 residual-unsold + 0.75 writes (not a published Headline)
+research_outputs/v6_1_1/ Live 1.2.1 / factorial writes (not a published Headline)
 expected_outputs/      Committed golden JSON (alberta full, texas baseline)
 docs/REPRODUCIBILITY.md
 ```

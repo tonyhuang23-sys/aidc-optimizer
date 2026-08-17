@@ -16,8 +16,9 @@ and the popular-science rewrite.
 Headline numbers for v6.1 live in `../research_outputs/v6_1/`.
 That pack is frozen at parameter version `v6.1-2026-08-15` / commit `e5fc8d7`
 under the **legacy 0.375 S-path compensation**. Do not treat it as a 1.2.1
-residual-unsold + 0.75 result. Live `research_v6_1.py` writes go to
-`../research_outputs/v6_1_1/` and must not replace the frozen pack.
+residual-unsold + 0.75 result. Live `research_v6_1.py` and
+`research_v6_factorial_fixed.py` writes go to `../research_outputs/v6_1_1/`
+and must not replace the frozen pack.
 Do not mix v5.0 Peak Equity (~$5.5 B) or
 v5.0 C4 NPV (−$821 M) with v6.1 Headline.
 

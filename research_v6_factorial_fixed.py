@@ -6,6 +6,9 @@ Replaces the pre-P0-0 Table 5 effects. Decay path is (1+g)^(k/12) in models.py.
 Reports deterministic NPV / IRR / Peak plus All-risk-lite CE per cell, then
 main effects and two-way interactions.
 
+Live writes go to research_outputs/v6_1_1/. The frozen Table 5 pack remains
+in research_outputs/v6_1/.
+
     python research_v6_factorial_fixed.py
 """
 from __future__ import annotations
@@ -22,8 +25,11 @@ from aidc_optimizer.cli import load_config, apply_overrides
 from aidc_optimizer.risk import run_full_pipeline
 from reproduce import FACTOR_LEVELS, RATE_BY_CELL, gpu_correlated_mc, run_scenario
 
-OUT = Path("research_outputs/v6_1")
+FROZEN_OUT = Path("research_outputs/v6_1")
+OUT = Path("research_outputs/v6_1_1")
 OUT.mkdir(parents=True, exist_ok=True)
+if OUT.resolve() == FROZEN_OUT.resolve():
+    raise SystemExit("refusing to write live factorial results over the frozen Headline pack")
 CFG = load_config("configs/alberta.yaml")
 SEED = 42
 N_CE = 800  # per-cell CE; not Headline N=10,000
